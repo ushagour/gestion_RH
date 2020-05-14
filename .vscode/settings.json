@@ -1,0 +1,28 @@
+{
+    "files.exclude": {
+        "**/cache": true,
+        "**/third_party": true,
+        "**/hooks": true,
+        "**/helpers": true,
+        //"**/language": true,
+        "**/libraries": true,
+        "**/core": true,
+        "**/user_guide": true,
+        "**/*.txt": true,
+        "**/*.htaccess": true,
+        "**/system": true,
+        "**/composer.json": true,
+        "**/readme.rst": true,
+        "**/index.html": true,
+        ".editorconfig": true,
+        ".gitignore": true,
+        "**/logs" : true,
+        "**/Assets" : true,
+        "**/db_lang.php" : true,
+        "**/email_lang.php" : true,
+        "**/form_validation_lang.php" : true,
+        //"**/errors" : true,
+        "**/*.sql" : true
+    },
+    "editor.fontSize": 18
+}
