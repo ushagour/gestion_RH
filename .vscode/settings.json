@@ -28,5 +28,5 @@
         "**/.env.development.example" : true,
         "**/.env.example" : true
     },
-    "editor.fontSize": 18
+    "editor.fontSize": 15
 }
