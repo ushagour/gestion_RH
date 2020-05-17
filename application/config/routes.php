@@ -54,13 +54,21 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-
-
 //controller dashbord 
 $route['home'] = 'Dashbord/index';
-$route['ajouter'] = 'Dashbord/ajouter_personnel';
+
+$route['ajouter'] = 'Dashbord/ajouter_personnel';//loader dyal page ajouter 
+$route['add'] = 'Dashbord/add';//evenement add 
+
+
+
 $route['supprimer'] = 'Dashbord/supprimer_personnel';
 $route['edit'] = 'Dashbord/recherch_personnel';
+
+
+
+
+
 
 //Users ***************************************************************************************************************
 $route['login'] = 'user/login'; 														// Login Page and function 
