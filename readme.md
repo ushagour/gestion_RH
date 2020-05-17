@@ -1,6 +1,6 @@
 
-# veille app
-Application de gestion de faits saillants
+# gestion Rh 
+Application de gestion de ressources humaines
 
 ## Menu
  1. [Installation](#installation)
@@ -18,9 +18,7 @@ Application de gestion de faits saillants
 ## Controllers
 
 - **Dashboard** 
-Kan9ado fiha category o sup category, o ghadi ndiro fiha ta routing dyal roles.
-- **Article**
-Aya 7aja 3andha 3ala9a m3a articles, ta9riban most important **Controller** fhad l app kolha .
+
 - **User**
 ghadi ndiro fiha log in o logout o chi 7aja akhra 3andha 3la9a b users
 
@@ -29,18 +27,13 @@ ghadi ndiro fiha log in o logout o chi 7aja akhra 3andha 3la9a b users
 
 - **Globals**
 	 - header
-	 - menu
 	 - footer
 	 - login page
-- **Categories**
-	 - add category
-- **Sup Categories**
-	- add sup category
-- **Articles**
-	- add article
-	- see all articles
-	- update articles
-	- see and print confirmed articles
-	- printed articles 
+- **loading page**
+	 - loading page
 
+- **pages**
+	 - ajouter page (add_page)
+	 - cosulter page
+	 - home page
 
