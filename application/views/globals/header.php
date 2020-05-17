@@ -5,69 +5,119 @@
 	<title>GESTION RH</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome JS -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-	<!-- <link href="<?=base_url()?>assets/css/font-awesome.min.css" rel="stylesheet">
-  <script type="text/javascript" src="<?=base_url()?>assets/js/fontawesome.min.js"></script> 
--->
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
-	<link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
-	<script type="text/javascript" src="<?=base_url()?>assets/js/bootstrap.min.js"></script>
-
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	<script type="text/javascript" src="<?=base_url()?>assets/js/jquery-3.4.1.min.js"></script>
 
 
+	<link rel="stylesheet"  href="<?=base_url()?>assets/css/style.css" >
 
 	<!-- custem files -->
 	<script type="text/javascript" src="<?=base_url()?>assets/js/MsJs.js"></script>
-	<link href="<?=base_url()?>assets/css/MyCss.css" rel="stylesheet">
 </head>
+<style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+</style>
 <body onload="myFunction()">
 
 	<div id="loader">
 	</div>
-	<main id="page" style="display:none;">
-		<div class="container-fluid">
-			<div class="row content">
+	
+   
+	<div id="page"style="display:none;">
 
-			
-				<div class="col-md-3 sidenav">
-					<h4>gestion RH : <small>mr </small> <button type="button" class="btn btn-default btn-sm">
-							<span class="glyphicon glyphicon-log-out"></span> Log out
-						</button></h4>
-					<ul class="navbar-mobile__list list-unstyled">
+<div class="wrapper">
 
-						<li
-							class="has-sub <?php if($this->session->userdata('menu') =="home")echo "active"; else  echo " ";?>">
-							<a href="<?=base_url()?>home">
-								<i class="fas fa-home mr-3"></i> Home</a>
+   <!-- Sidebar  -->
+   <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Gestion RH </h3>
+            </div>
 
-						</li>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+          
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
 
-						<li
-							class="has-sub <?php if($this->session->userdata('menu') =="ajouter") echo "active"; else " ";?>">
-							<a href="<?=base_url()?>ajouter">
-								<i class="fas fa-user-plus mr-3"></i> Ajouter </a>
-						</li>
-
-
-						<li
-							class="has-sub <?php if($this->session->userdata('menu') == "edit")echo "active"; else " ";?>">
-							<a href="<?=base_url()?>edit">
-								<i class="fas fa-edit mr-3"></i> editier </a>
-						</li>
-
-
-					</ul>
-					<br>
-
-
-
-
-				</div>
+            <ul class="list-unstyled CTAs">
+                <!-- <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li> -->
+            </ul>
+        </nav>

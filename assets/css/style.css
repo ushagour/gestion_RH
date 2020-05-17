@@ -167,3 +167,9 @@ a.article:hover {
         display: none;
     }
 }
+#footer{
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+
+}

@@ -5,6 +5,7 @@
     <title></title>
     <link href="<?=base_url()?>assets/css/loadingCSS.css" rel="stylesheet">
   </head>
+  
   <body>
     <div class="loading">
       <div class="obj"></div>

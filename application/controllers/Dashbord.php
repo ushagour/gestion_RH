@@ -7,13 +7,6 @@ class Dashbord extends CI_Controller {
 	}
 	public function index() {
 
-		$newdata = array(
-			'menu'  => 'home'
-		);
-
-		$this->session->set_userdata($newdata);
-
-
 		$this->load->view('globals/header.php');
         $this->load->view('home_page.php');
 		$this->load->view('globals/footer.php');
@@ -22,7 +15,7 @@ class Dashbord extends CI_Controller {
 	}
 	
 	public function test(){
-        $this->load->view('globals/test.php');
+        $this->load->view('globals/test2.php');
 
 
 	}
