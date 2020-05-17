@@ -35,6 +35,8 @@
 	<main id="page" style="display:none;">
 		<div class="container-fluid">
 			<div class="row content">
+
+			
 				<div class="col-md-3 sidenav">
 					<h4>gestion RH : <small>mr </small> <button type="button" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-log-out"></span> Log out

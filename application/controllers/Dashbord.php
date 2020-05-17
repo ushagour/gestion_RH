@@ -21,7 +21,11 @@ class Dashbord extends CI_Controller {
 
 	}
 	
-	
+	public function test(){
+        $this->load->view('globals/test.php');
+
+
+	}
     public function ajouter_personnel() {
 		$newdata = array(
 			'menu'  => 'ajouter'
