@@ -14,9 +14,9 @@ class Dashbord extends CI_Controller {
 		$this->session->set_userdata($newdata);
 
 
-		$this->load->view('header.php');
+		$this->load->view('globals/header.php');
         $this->load->view('home_page.php');
-		$this->load->view('footer.php');
+		$this->load->view('globals/footer.php');
 
 
 	}
@@ -103,9 +103,9 @@ else{
 }
 
         }
-    	$this->load->view('header.php');
+    	$this->load->view('globals/header.php');
         $this->load->view('add_page.php');
-		$this->load->view('footer.php');
+		$this->load->view('globals/footer.php');
 
 	}
 	
@@ -116,9 +116,9 @@ else{
 
 	public function supprimer_personnel() {
 
-		$this->load->view('header.php');
+		$this->load->view('globals/header.php');
         $this->load->view('delete_page.php');
-		$this->load->view('footer.php');
+		$this->load->view('globals/footer.php');
 
     }
 	public function recherch_personnel() {
@@ -133,9 +133,9 @@ else{
 		$data['infoperssonel']=$this->Perssonel_model->search($cine);
 
 	
-		$this->load->view('header.php');
+		$this->load->view('globals/header.php');
         $this->load->view('search_page.php',$data);
-		$this->load->view('footer.php');
+		$this->load->view('globals/footer.php');
 
     }
 }

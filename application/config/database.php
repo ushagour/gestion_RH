@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |				'ssl_ca'     - Path to the certificate authority file
 |				'ssl_capath' - Path to a directory containing trusted CA certificates in PEM format
 |				'ssl_cipher' - List of *allowed* ciphers to be used for the encryption, separated by colons (':')
-|				'ssl_verify' - TRUE/FALSE; Whether verify the server certificate or not ('mysqli' only)
+|				'ssl_verify' - TRUE/FALSE; Whether verify the server certificate or not
 |
 |	['compress'] Whether or not to use client compression (MySQL only)
 |	['stricton'] TRUE/FALSE - forces 'Strict Mode' connections
@@ -75,11 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'gestionrh',
-	'dbdriver' => 'mysqli',
+	'port'	=> 		getenv('DB_PORT'),
+	'hostname' => 	getenv('DB_HOST'),
+	'username' => 	getenv('DB_USERNAME',null),
+	'password' => 	getenv('DB_PASSWORD',null),
+	'database' => 	getenv('DB_DATABASE'),
+	'dbdriver' => 	getenv('DB_CONNECTION',null),
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

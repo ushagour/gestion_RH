@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c> 
 RewriteEngine on
-RewriteBase /gestionRh
+RewriteBase /gestion_Rh
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
