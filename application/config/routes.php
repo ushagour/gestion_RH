@@ -59,11 +59,17 @@ $route['home'] = 'Dashbord/index';
 
 $route['ajouter'] = 'Dashbord/ajouter_personnel';//loader dyal page ajouter 
 $route['add'] = 'Dashbord/add';//evenement add 
+$route['update'] = 'Dashbord/update';//evenement modifier 
+
+$route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichage 
+
+
+$route['delete-personnel/(:any)'] = 'Dashbord/delete/$1';//event dyl supprition 
+$route['edit_personnel/(:any)'] = 'Dashbord/edit_personnel/$1';// page dyal modification 
 
 
 
-$route['supprimer'] = 'Dashbord/supprimer_personnel';
-$route['edit'] = 'Dashbord/recherch_personnel';
+$route['search'] = 'Dashbord/SearchPersonnel';// page dyal recherch 
 
 
 

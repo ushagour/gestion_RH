@@ -86,7 +86,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <!-- <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -99,19 +99,22 @@
                             <a href="#">Home 3</a>
                         </li>
                     </ul>
-                </li>
+				</li> -->
+				
+				<li>
+                            <a href="<?=base_url();?>home">Home </a>
+                        </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="<?=base_url();?>ajouter">Ajouter</a>
                 </li>
           
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="<?=base_url();?>affichage">Affichage</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
                 </li>
             </ul>
-
             <ul class="list-unstyled CTAs">
                 <!-- <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
