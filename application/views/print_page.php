@@ -192,9 +192,6 @@
 			padding: 10px !important;
 		}
 
-		table td {
-			padding: 5px;
-		}
 
 		.instruction {
 			height: 100px;
@@ -224,11 +221,10 @@
 
 		<table style="width:100%;margin-bottom:50px;padding-top:20px !important">
 			<tr>
-				<td style="vertical-align: top;width:40%;">
+				<!-- <td style="vertical-align: top;width:40%;">
 
-					<?= 'A Rabat, Le : '.date("d-m-Y",strtotime(date('Y-m-d'))); ?>
 
-				</td>
+				</td> -->
 				<th style="margin-left :0px;width:35%;">
 					<h3><u> LISTE DES PERSONNEL </u></h3>
 				</th>
@@ -245,9 +241,11 @@
 		<table id="mytable" class="enteteTab" border="1" style="width:100%; border-collapse: collapse;">
 			<tbody>
 				<tr class="listHeading">
-					<th style="width:8%; border: 1px solid black;"><strong>id</strong></th>
-					<th style="width:72%; border: 1px solid black;">nom</th>
-					<th style="width:20%; border: 1px solid black;"> prenom</th>
+					<th style="width:2%; border: 1px solid black;"><strong>id</strong></th>
+					<th style="width:7%; border: 1px solid black;"> cin</th>
+					<th style="width:10%; border: 1px solid black;">nom</th>
+					<th style="width:10%; border: 1px solid black;"> prenom</th>
+					<th style="width:10%; border: 1px solid black;"> telephone</th>
 				</tr>
 			</tbody>
 		</table>
@@ -256,11 +254,14 @@
 
 		<!-- ************************************ -->
 
-		<table id="mytable" border="1" style="width:100%; border-collapse: collapse;">
+		<table  id="mytable" border="1" style="width:100%; border-collapse: collapse;">
 
 
 
 			<tbody>
+
+
+<?php foreach($infoperssonel as $row): ?>
 
 
 
@@ -273,23 +274,37 @@
 				</tr> -->
 
 				<tr class="data" style="border: 1px solid #000000;">
-					<td style="width:8%; border: 1px solid black;text-align:center">
+					<td style="width:2%; border: 1px solid black;text-align:center">
             
-                     <b>ID</b>
+                     <b><?= $row->id;?></b>
                         
 					</td>
-
-					<td >
-						<p>tyk
-						</p>
+					<td  style="width:7%; ">
+						<p> <?= $row->CIN;?></p>
+					</td>
+					<td  style="width:10%; ">
+						<p> <?= $row->nom;?></p>
+					</td>
+					<td  style="width:10%; ">
+						<p> <?= $row->prenom;?></p>
+					</td>
+					<td  style="width:10%; ;text-align:center">
+						<p> <?= $row->telephone;?></p>
 					</td>
 
 	
 				</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
 
+<div class="instruction">
+<p class="text-left">
+<?= 'A Rabat, Le : '.date("d-m-Y",strtotime(date('Y-m-d'))); ?>
 
+</p>
+
+</div>
 		
 		<!-- ************************************ -->
 
