@@ -18,11 +18,14 @@
 			&nbsp;			  
 			<div class="input-group-btn">
 
-                           <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> </button>
-                                 </div>
+          <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> </button>
+                  </div>
          </div>
 
-	  </form>
+	  </form>	<div style="text-align: right!important;     padding-bottom: 5px; <?= ($this->session->userdata('is_check'))?"display: none;":" " ?>  ">
+			<a href="<?=base_url()?>print-etat" target="_blank" class="btn btn-info btn-flat"
+					style=" border-radius: 30px; "><i class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
+							</div>
 
 	  <br>
 									</header>
@@ -75,7 +78,7 @@
 												<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>" class="btn btn-info"><i class="fas fa-user-edit"></i></a>
 
 											<button
-											onclick="select(<?php echo $item->id ;?>,<?php echo $item->checked ;?>)"
+											onclick="valider_ar(<?php echo $item->id ;?>,<?php echo $item->checked ;?>)"
 											class="btn btn-<?= ($item->checked)?"success":"dark" ?>"><i
 												class="fa fa-check" aria-hidden="true"></i></button>
 											
@@ -118,6 +121,25 @@ function del(id) {
 			},
 			error: function (data) {
 				 alert("erreur !");
+			}
+		});
+
+	}
+
+	function valider_ar(id, state) {
+		console.log(id, state)
+		jQuery.ajax({
+			type: "GET",
+			url: "<?php echo base_url();?>check/" + id + "/" + state,
+
+			success: function (data) {
+				$('#o').load(location.href + " #o");
+
+
+				console.log(data);
+			},
+			error: function (data) {
+				//  alert("impression impossible !");
 			}
 		});
 

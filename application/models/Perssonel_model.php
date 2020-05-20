@@ -19,6 +19,14 @@ class Perssonel_model extends CI_Model {
         $this->db->where('id', $id);
 		$this->db->delete('perssonel');
     }
+ 
+    public function check_personnel($id,$state){//red lbal men trtiib dyll les parametres 
+
+        $this->db->set('checked', $state);
+        $this->db->where('id', $id);
+        $this->db->update("perssonel");
+        // echo $state; pour le test des variabes apre lexecution du requette
+        }
     
     public function personnel_to_edit($id){
         $this->db->select('*');
@@ -40,6 +48,16 @@ class Perssonel_model extends CI_Model {
         $this->db->from('perssonel');
       //  $this->db->where('CIN',$cine);
       $this->db->order_by('id', 'desc');
+
+        $query = $this->db->get();
+        return $result = $query->result();
+
+    }
+    public function get_per_to_print() {
+        $this->db->select('*');
+        $this->db->from('perssonel');
+        $this->db->where('checked',1);
+        $this->db->order_by('id', 'desc');
 
         $query = $this->db->get();
         return $result = $query->result();

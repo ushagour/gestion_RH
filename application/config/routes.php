@@ -60,8 +60,13 @@ $route['home'] = 'Dashbord/index';
 $route['ajouter'] = 'Dashbord/ajouter_personnel';//loader dyal page ajouter 
 $route['add'] = 'Dashbord/add';//evenement add 
 $route['update'] = 'Dashbord/update';//evenement modifier 
+$route['check/(:any)/(:any)'] = 'Dashbord/check/$1/$2';//evenement check 
 
 $route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichage 
+
+
+
+$route['print-etat'] = 'Dashbord/print_etat';//loader dyal page affichage 
 
 
 $route['delete-personnel/(:any)'] = 'Dashbord/delete/$1';//event dyl supprition 

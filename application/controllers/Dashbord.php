@@ -97,6 +97,15 @@ class Dashbord extends CI_Controller {
 
 	}
 
+	public function check($id,$state) {
+		$this->Perssonel_model->check_personnel($id,!$state);
+		//redirect(base_url()."affichage");
+    // echo $state;
+	// echo !$state;
+    
+
+	}
+
 
 
 	public function edit_personnel($id){
@@ -245,14 +254,77 @@ class Dashbord extends CI_Controller {
 
 	//	$cine=$this->input->post("CIN");
 
-		$data['infoperssonel']=$this->Perssonel_model->select_p();
-
+        $data['infoperssonel']=$this->Perssonel_model->select_p();
+    
+        $this->session->set_userdata('is_check', 0);//todo khassni ndwz variable en parametres 
 
 		$this->load->view('globals/header.php');
 		$this->load->view('see_page.php', $data);
 		$this->load->view('globals/footer.php');
 
 	}
+
+
+	public function print_etat() {
+   
+
+        $data['infoperssonel'] = $this->Perssonel_model->get_per_to_print();
+
+        // echo '<pre>';
+        // print_r($data['infoperssonel']);
+
+
+        // foreach($data['cats'] as $cat){
+
+        //     $arts = $this->Article_model->get_art_by_cat($cat->id);
+        //     if(empty($arts)){
+        //         continue;
+        //     }
+            
+        //     echo '<br>*************************<br>';
+        //     echo $cat->name.'<br>';
+
+        //     $test_var = '';
+
+        //     foreach ($arts as $art) {
+        //         if ($test_var != $art->id_sous_cat) {
+        //             $test_var = $art->id_sous_cat;
+                    
+        //             echo '<br>';
+        //             echo '  '.$art->fsc_name.'<br>';
+        //         }
+        //         echo '      '.$art->id.'<br>';
+        //     }
+
+        // }
+
+        $this->load->view('print_page', $data);
+    }
+
+
+    public function generateFPDF($id){
+
+        //    pour la configuration du pdf voir fichier *voir therdparty/fpdf/librarys/pdf.php  DFZD
+        
+            //  $id= $this->uri->segment(3); 
+        
+            $data["gett"] = $this->Authors_model->gett($id);
+            
+            $data["all"] = $this->Authors_model->showall();
+        
+        
+            $this->pdf = new Pdf();
+            $this->pdf->Add_Page('P','A4',0);
+            $this->pdf->AliasNbPages();    
+            $this->pdf->BasicTable($data);// function qui va afficher le tableau dans le fichier pdf  ****voir therdparty/fpdf/librarys/pdf.php  
+        
+            $this->pdf->Output( 'page.pdf' , 'I' );
+            
+            
+            
+            
+        
+            }
 
 
 	public function test() {
