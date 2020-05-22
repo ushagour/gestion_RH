@@ -64,7 +64,13 @@ class Perssonel_model extends CI_Model {
 
     }
 
-  
+    public function count_to_print() {	
+        $this->db->select('*');
+        $this->db->from('perssonel');
+        $this->db->where('checked',1);
+		$query=$this->db->get();
+		return $result=$query->num_rows();
+	  }
     // region search 
     public function get_count($cin) {	
         $this->db->select('*');

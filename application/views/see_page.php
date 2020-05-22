@@ -10,7 +10,7 @@
   
 
        
-      <section class="panel">
+      <section class="panel" id="tab">
             <header class="panel-heading">
 			<form action="<?php echo base_url();?>search" method="post">
 			<div class="input-group col-md-4">
@@ -22,14 +22,16 @@
                   </div>
          </div>
 
-	  </form>	<div style="text-align: right!important;     padding-bottom: 5px; <?= ($this->session->userdata('is_check'))?"display: none;":" " ?>  ">
+	  </form>	
+	  
+	  <div  style="text-align: right!important;     padding-bottom: 5px; <?= ($canprint)?" ":"display: none;" ?>  ">
 			<a href="<?=base_url()?>print-etat" target="_blank" class="btn btn-info btn-flat"
 					style=" border-radius: 30px; "><i class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
 							</div>
 
 	  <br>
 									</header>
-            <div class="panel-body" id="o">
+            <div class="panel-body">
 
 
 		<?php	if(isset($infoperssonel)) { ?>
@@ -133,7 +135,7 @@ function del(id) {
 			url: "<?php echo base_url();?>check/" + id + "/" + state,
 
 			success: function (data) {
-				$('#o').load(location.href + " #o");
+				$('#tab').load(location.href + " #tab");
 
 
 				console.log(data);

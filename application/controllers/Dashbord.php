@@ -120,55 +120,53 @@ class Dashbord extends CI_Controller {
 
     public function update(){
         // id dyal article li ghadi ytzad
-        $id = $this->input->post('id');
-        $this->form_validation->set_rules('id_cat','id_cat','required|xss_clean');
-        $this->form_validation->set_rules('id_sous_cat','id_sous_cat','required|xss_clean');
-        $this->form_validation->set_rules('date_evenement','date_evenement','required|xss_clean');
-        $this->form_validation->set_rules('date_trait','date_trait','required|xss_clean');
-        $this->form_validation->set_rules('source','source','required|xss_clean');
-        $this->form_validation->set_rules('synthese','synthese','required|xss_clean');
-
+        $config=array(array('field'=> 'nom', 'label'=> 'nom', 'rules'=> 'trim|required'), //,'errors'=>['required'=>'create your cusstom error '] 
+        array('field'=> 'prenom', 'label'=> 'prenom', 'rules'=> 'trim|required'),
+        array('field'=> 'date_naissance', 'label'=> 'date_naissance', 'rules'=> 'trim|required'),
+        array('field'=> 'CIN', 'label'=> 'CIN', 'rules'=> 'trim|required'),
+        // array('field'=> 'tel','label'=> 'tel' , 'rules'=>'required|regex_match[/^[0-9]{10}$/]','errors'=>['required'=>'most be a number'] ),
+        array('field'=> 'Address', 'label'=> 'Address', 'rules'=> 'trim|required'),
+        array('field'=> 'gender', 'label'=> 'gender', 'rules'=> 'trim|required'),
+        array('field'=> 'service', 'label'=> 'service', 'rules'=> 'trim|required'),
+        array('field'=> 'poste', 'label'=> 'poste', 'rules'=> 'trim|required'),
+        array('field'=> 'salaire', 'label'=> 'salaire', 'rules'=> 'trim|required'));
+ 
         //region Trying to upload a file
-        $config['upload_path']          = './assets/files';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg|webp|pdf|flv|mp4|doc|docx|xls|xlsx|ppt|pptx';
-        $config['max_size']             = 10000000;     // 1000KB = 1MO
-        $config['max_width']            = 300000;
-        $config['max_height']           = 300000;
-        $config['encrypt_name']         = TRUE;
+        $config['upload_path']='./assets/files';
+        $config['allowed_types']='gif|jpg|png';
+        $config['max_size']=10000000; // 1000KB = 1MO
+        $config['max_width']=300000;
+        $config['max_height']=300000;
+        $config['encrypt_name']=TRUE;
 
-        $filename = time()."-".$_FILES["piece_joint"]["name"];
+        $this->upload->initialize($config);
 
-        $config['file_name'] = $filename;
-
-        $this->load->library('upload', $config);
-        $dataa = [];
-        if (!$this->upload->do_upload('piece_joint')) {
-            $error = array('error' => $this->upload->display_errors());
-
-            print_r($error);
-        } else {
-            $dataa = $this->upload->data();
+        if ( !$this->upload->do_upload()) {
+            $error=array('error'=> $this->upload->display_errors());
+            print_r($error); // pour affichage des erreur au moment d'uploding files
         }
-        //endregion
 
-        
-        // if($this->form_validation->run()){           
-        if(true){           
-  
-            $data = array(
-                'id_cat' => $this->input->post('id_cat'),
-                'id_sous_cat' => $this->input->post('id_sous_cat'),
-                'date_evenement' => $this->input->post('date_evenement'),
-                'lieu' => $this->input->post('lieu'),
-                'date_trait' => $this->input->post('date_trait'),
-                'source' => $this->input->post('source'),
-                'synthese' => $this->input->post('synthese'),
-                'mesure_prise' => $this->input->post('mesure_prise')
-                );
-
+        else {
+            $file=$this->upload->data();
+            //print_r($file);
+        }
+if(true){
+        $data=array("nom"=>$this->input->post("nom"),
+            "prenom"=>$this->input->post("prenom"),
+            "date_naissance"=>$this->input->post("date_naissance"),
+            "CIN"=>$this->input->post("CIN"),
+            "Address"=>$this->input->post("Address"),
+            "telephone"=>$this->input->post("telephone"),
+            "gender"=>$this->input->post("gender"),
+            "service"=>$this->input->post("service"),
+            "poste"=>$this->input->post("poste"),
+            "salaire"=>$this->input->post("salaire"),
+            "photo"=>isset($file["file_name"])?$file["file_name"]:"no_image.png" //ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
+);
+            
                 // ila kan chi file 
                 if(isset($dataa["file_name"])){
-                    $data['piece_joint'] = $dataa["file_name"];
+                    $data['photo'] = $dataa["file_name"];
                     echo 'There is a PJ';
                 }
                 
@@ -257,6 +255,7 @@ class Dashbord extends CI_Controller {
         $data['infoperssonel']=$this->Perssonel_model->select_p();
     
         $this->session->set_userdata('is_check', 0);//todo khassni ndwz variable en parametres 
+        $data['canprint'] = $this->Perssonel_model->count_to_print();
 
 		$this->load->view('globals/header.php');
 		$this->load->view('see_page.php', $data);
