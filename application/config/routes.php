@@ -69,6 +69,8 @@ $route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichag
 $route['print-etat'] = 'Dashbord/print_etat';//loader dyal page affichage 
 
 
+$route['generateFPDF/(:any)'] = 'Dashbord/generateFPDF/$1';//loader dyal generate pdf dyal koola personnel
+
 $route['delete-personnel/(:any)'] = 'Dashbord/delete/$1';//event dyl supprition 
 $route['edit_personnel/(:any)'] = 'Dashbord/edit_personnel/$1';// page dyal modification 
 

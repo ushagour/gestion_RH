@@ -3,7 +3,9 @@
 class Dashbord extends CI_Controller {
 
 	public function __construct() {
-		parent::__construct();
+        parent::__construct();
+        $this->load->add_package_path( APPPATH . 'third_party/fpdf');
+        $this->load->library('pdf');
 	}
 
 	public function index() {
@@ -119,7 +121,8 @@ class Dashbord extends CI_Controller {
     }
 
     public function update(){
-        // id dyal article li ghadi ytzad
+        $id = $this->input->post('id');
+        
         $config=array(array('field'=> 'nom', 'label'=> 'nom', 'rules'=> 'trim|required'), //,'errors'=>['required'=>'create your cusstom error '] 
         array('field'=> 'prenom', 'label'=> 'prenom', 'rules'=> 'trim|required'),
         array('field'=> 'date_naissance', 'label'=> 'date_naissance', 'rules'=> 'trim|required'),
@@ -141,7 +144,7 @@ class Dashbord extends CI_Controller {
 
         $this->upload->initialize($config);
 
-        if ( !$this->upload->do_upload()) {
+        if (!$this->upload->do_upload()) {
             $error=array('error'=> $this->upload->display_errors());
             print_r($error); // pour affichage des erreur au moment d'uploding files
         }
@@ -164,14 +167,10 @@ if(true){
             "photo"=>isset($file["file_name"])?$file["file_name"]:"no_image.png" //ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
 );
             
-                // ila kan chi file 
-                if(isset($dataa["file_name"])){
-                    $data['photo'] = $dataa["file_name"];
-                    echo 'There is a PJ';
-                }
+           
                 
                 echo 'Here';
-                $this->$this->Perssonel_model->update_personnel($data,$id);
+                $this->Perssonel_model->update_personnel($data,$id);
                 redirect(base_url()."affichage");
       }
       else {
@@ -263,6 +262,34 @@ if(true){
 
 	}
 
+    
+    public function generateFPDF($id){
+
+        //    pour la configuration du pdf voir fichier *voir therdparty/fpdf/librarys/pdf.php  DFZD
+        
+            //  $id= $this->uri->segment(3); 
+        
+           //  $data["infoP"] = $this->Perssonel_model->selectP();
+            
+            // $data["all"] = $this->Authors_model->showall();
+            $data="What multiCell does is to spread the given text into multiple cells,
+             this means that the second parameter defines the height of each line (individual cell)
+              and not the height of all cells (collectively).";
+
+        
+            $this->pdf = new Pdf();
+            $this->pdf->Add_Page('P','A4',0);
+            $this->pdf->AliasNbPages();    
+            $this->pdf->BasicTable($data);// function qui va afficher le tableau dans le fichier pdf  ****voir therdparty/fpdf/librarys/pdf.php  
+        
+            $this->pdf->Output('page.pdf' , 'I' );
+            
+            
+            
+            
+        
+            }
+        
 
 	public function print_etat() {
    
@@ -301,29 +328,6 @@ if(true){
     }
 
 
-    public function generateFPDF($id){
-
-        //    pour la configuration du pdf voir fichier *voir therdparty/fpdf/librarys/pdf.php  DFZD
-        
-            //  $id= $this->uri->segment(3); 
-        
-            $data["gett"] = $this->Authors_model->gett($id);
-            
-            $data["all"] = $this->Authors_model->showall();
-        
-        
-            $this->pdf = new Pdf();
-            $this->pdf->Add_Page('P','A4',0);
-            $this->pdf->AliasNbPages();    
-            $this->pdf->BasicTable($data);// function qui va afficher le tableau dans le fichier pdf  ****voir therdparty/fpdf/librarys/pdf.php  
-        
-            $this->pdf->Output( 'page.pdf' , 'I' );
-            
-            
-            
-            
-        
-            }
 
 
 	public function test() {
