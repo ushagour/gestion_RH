@@ -32,7 +32,7 @@ class User extends CI_Controller
 				'logged_in'=> TRUE);
 
 				$this->session->set_userdata($newdata);
-				redirect(base_url().'afficher-synthese');
+				redirect(base_url().'home');
 			}
 			else{
 				$this->session->set_flashdata('login_err', 'Log ou mdp err');

@@ -10,6 +10,8 @@ class Dashbord extends CI_Controller {
 
 	public function index() {
 
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 		$this->load->view('globals/header.php');
 		$this->load->view('home_page.php');
 		$this->load->view('globals/footer.php');
@@ -19,6 +21,8 @@ class Dashbord extends CI_Controller {
 
 // add region
 	public function ajouter_personnel() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 
 		$this->load->view('globals/header.php');
 		$this->load->view('add_page.php');
@@ -26,7 +30,8 @@ class Dashbord extends CI_Controller {
 	}
 
 	public function add() {
-
+    if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 		//validations
 		$user=1; // $user=$this->session->userdata('id_user');
 
@@ -93,6 +98,8 @@ class Dashbord extends CI_Controller {
 
 
 	public function delete($id) {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 		$this->Perssonel_model->delete($id);
 		redirect(base_url()."affichage");
 	
@@ -100,6 +107,8 @@ class Dashbord extends CI_Controller {
 	}
 
 	public function check($id,$state) {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 		$this->Perssonel_model->check_personnel($id,!$state);
 		//redirect(base_url()."affichage");
     // echo $state;
@@ -111,7 +120,8 @@ class Dashbord extends CI_Controller {
 
 
 	public function edit_personnel($id){
-
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
         $data['item'] = $this->Perssonel_model->personnel_to_edit($id)[0];
 
 		$this->load->view('globals/header.php');
@@ -121,6 +131,8 @@ class Dashbord extends CI_Controller {
     }
 
     public function update(){
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
         $id = $this->input->post('id');
         
         $config=array(array('field'=> 'nom', 'label'=> 'nom', 'rules'=> 'trim|required'), //,'errors'=>['required'=>'create your cusstom error '] 
@@ -183,6 +195,8 @@ if(true){
 
 
 	public function SearchPersonnel(){
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
         $cin=(isset($_POST['CIN'])?$_POST['CIN']:'');
 
 
@@ -248,7 +262,8 @@ if(true){
 
 
 	public function affichage_personnel() {
-
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 	//	$cine=$this->input->post("CIN");
 
         $data['infoperssonel']=$this->Perssonel_model->select_p();
@@ -264,7 +279,8 @@ if(true){
 
     
     public function generateFPDF($id){
-
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
         //    pour la configuration du pdf voir fichier *voir therdparty/fpdf/librarys/pdf.php  DFZD
         
             //  $id= $this->uri->segment(3); 
@@ -292,7 +308,8 @@ if(true){
         
 
 	public function print_etat() {
-   
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
 
         $data['infoperssonel'] = $this->Perssonel_model->get_per_to_print();
 

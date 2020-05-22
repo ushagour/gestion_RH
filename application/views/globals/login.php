@@ -1,112 +1,128 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>logion </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/normalize.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/morrisjs/morris.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/calendar/fullcalendar.print.min.css">
-    <!-- forms CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/form/all-type-forms.css">
-    <!-- style CSS
-		============================================ -->
-   
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script href="<?php echo base_url() ?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Title Page-->
+    <title>Login</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="<?= base_url() ?>assets/css/login/font-face.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="<?= base_url() ?>/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="<?= base_url() ?>/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="<?= base_url() ?>/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="<?= base_url() ?>assets/css/login/theme.css" rel="stylesheet" media="all">
+
 </head>
 
-<body>
-  
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#">
+                                <!-- <img src="images/icon/logo.png" alt="CoolAdmin"> -->
+<h1>Gestion RH</h1>
+                            </a>
+                        </div>
+                        <div class="login-form">
 
-    <div class="color-line"></div>
-    </br>
-    </br>
-    </br>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
-            <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
-               
-                <div class="hpanel">
-                    <div class="panel-body">
-                        <form action="<?php echo base_url() ?>login" method="POST" id="loginForm">
+
+                            <form action="<?php echo base_url() ?>login" method="POST" id="loginForm">
+
+
+
+
                             <div class="form-group">
-                                <label class="control-label" for="username">Login</label>
-                                <input type="text" placeholder="Login" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
-                               
+                            <label  for="username">Login</label>
+                                    <input type="text" placeholder="Login" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                <label  for="password">Mot de passe</label>
+                                    <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                        </div>
+                                <div class="login-checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember">Remember Me
+                                    </label>
+                                    <label>
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                             
+
+
+
+
+                          
+
+                            </form>
+                            
+                            
+                            
+                            <div class="register-link">
+                                <p>
+                                    Don't you have account?
+                                    <a href="#">Sign Up Here</a>
+                                </p>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label" for="password">Mot de passe</label>
-                                <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                               
-                            </div>
-                            <div class="checkbox login-checkbox">
-                                <label>
-										
-                            </div>
-                            <button class="btn btn-success btn-block loginbtn">Login</button>
-                           
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
         </div>
-        </br>
-        <div class="row">
-            <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                <p>2020 © COPYRIGHTE</p>
-            </div>
-        </div>
+
     </div>
 
+    <!-- Jquery JS-->
+    <script src="<?= base_url() ?>/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="<?= base_url() ?>/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="<?= base_url() ?>/vendor/slick/slick.min.js">
+    </script>
+    <script src="<?= base_url() ?>/vendor/wow/wow.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/animsition/animsition.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="<?= base_url() ?>/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="<?= base_url() ?>/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?= base_url() ?>/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="<?= base_url() ?>assets/js/login/main.js"></script>
 
 </body>
 
 </html>
+<!-- end document-->

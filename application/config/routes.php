@@ -84,8 +84,8 @@ $route['search'] = 'Dashbord/SearchPersonnel';// page dyal recherch
 
 
 //Users ***************************************************************************************************************
-$route['login'] = 'user/login'; 														// Login Page and function 
-$route['logout'] = 'user/logout'; 														// logout 
+$route['login'] = 'User/login'; 														// Login Page and function 
+$route['logout'] = 'User/logout'; 														// logout 
 
 
 // $route['search'] = 'dashbord/search';
