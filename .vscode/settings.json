@@ -1,7 +1,7 @@
 {
     "files.exclude": {
         "**/cache": true,
-        "**/third_party": true,
+        // "**/third_party": true,
         "**/hooks": true,
         // "**/helpers": true,
         "**/language": true,
