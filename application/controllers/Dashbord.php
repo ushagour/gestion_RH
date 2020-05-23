@@ -33,7 +33,7 @@ class Dashbord extends CI_Controller {
     if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
 		//validations
-		$user=1; // $user=$this->session->userdata('id_user');
+         $user=$this->session->userdata('user_id');
 
 		$config=array(array('field'=> 'nom', 'label'=> 'nom', 'rules'=> 'trim|required'), //,'errors'=>['required'=>'create your cusstom error '] 
 			array('field'=> 'prenom', 'label'=> 'prenom', 'rules'=> 'trim|required'),
@@ -81,9 +81,17 @@ class Dashbord extends CI_Controller {
 				"poste"=>$this->input->post("poste"),
 				"salaire"=>$this->input->post("salaire"),
 				"photo"=>isset($file["file_name"])?$file["file_name"]:"no_image.png", //ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
-				'utilisateur'=> $user);
-			$this->Perssonel_model->ajouter($data);
-			// echo "<pre>";
+                "utilisateur"=> $user);
+                
+                $res =	$this->Perssonel_model->ajouter($data);
+if($res==true)
+{
+    $this->session->set_flashdata('success', "Le Perssonel a été enregistré !"); 
+}else{
+    $this->session->set_flashdata('error', "erreur veuillez réessayer");
+}
+            
+            // echo "<pre>";
 			// print_r($data);
 			redirect(base_url()."ajouter");
 		}
@@ -348,7 +356,10 @@ if(true){
 
 
 	public function test() {
-		$this->load->view('globals/test2.php');
+
+   $u= $this->session->userdata('user_id');
+print($u);
+		// $this->load->view('globals/test2.php');
 
 
 	}

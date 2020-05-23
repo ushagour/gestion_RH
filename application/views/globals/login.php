@@ -11,6 +11,7 @@
 
     <!-- Title Page-->
     <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>assets/img/favilogo.png">
 
     <!-- Fontfaces CSS-->
     <link href="<?= base_url() ?>assets/css/login/font-face.css" rel="stylesheet" media="all">
@@ -68,9 +69,7 @@
                                     <label>
                                         <input type="checkbox" name="remember">Remember Me
                                     </label>
-                                    <label>
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+                                  
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                              

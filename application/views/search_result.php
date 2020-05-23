@@ -13,11 +13,24 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-				<a class="nav-link" href="<?= base_url() ?>"> <span> </span><i class="fas fa-user-cog"></i></a>
-                </li>
-                <li class="nav-item ">     <a class="nav-link" href="<?= base_url() ?>logout">   <span> Déconnexion </span><i class="fas fa-sign-out-alt"></i>
-								 </a>                </li>
+               
+				<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+	<i class="fas fa-user-cog"></i>
+    </button>
+    <ul class="dropdown-menu">
+	<li class="nav-item "><a href="<?= base_url() ?>Account"><i class="fas fa-user"></i> Account</a></li>
+	<li class="nav-item "><a href="<?= base_url() ?>Setting"><i class="fas fa-cog"></i> Setting</a></li>
+      <li class="nav-item ">
+	  <a class="nav-link" href="<?= base_url() ?>logout"><i class="fas fa-sign-out-alt"></i> <span>Déconnexion </span></a>	
+</li>
+
+    </ul>
+  </div>
+  <li class="nav-item ">	
+  <a class="nav-link" href=""> /  <span> Welcome : <?php echo $this->session->userdata('name');?> </span></a>	
+
+</li>    
             
             </ul>
         </div>
