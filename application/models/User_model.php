@@ -7,4 +7,13 @@ class User_model extends CI_Model
         $query = $this->db->get('utilisateur');
         return $query->result();
     }
+    public function user_info($id) {    
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('id_user',$id);
+        $query = $this->db->get();
+        return $result = $query->result();
+       
+
+    }
 }

@@ -58,11 +58,9 @@
 
 
                             <div class="form-group">
-                            <label  for="username">Login</label>
                                     <input type="text" placeholder="Login" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                <label  for="password">Mot de passe</label>
                                     <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                         </div>
                                 <div class="login-checkbox">

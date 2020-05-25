@@ -50,6 +50,20 @@ class User extends CI_Controller
 		}
 	}
 
+	public function Detail_user() {
+		if(!$this->session->userdata('logged_in'))
+		{redirect(base_url()."login");}
+		$id=$this->session->userdata('user_id');
+		$data['user'] = $this->User_model->user_info($id)[0];
+		$this->load->view('globals/header.php');
+		$this->load->view('user/detail_user.php',$data);
+		$this->load->view('globals/footer.php');
+	}
+
+
+
+
+
 
 	public function Logout() {
 		$this->session->sess_destroy();

@@ -20,8 +20,9 @@
 	<i class="fas fa-user-cog"></i>
     </button>
     <ul class="dropdown-menu">
-	<li class="nav-item "><a href="<?= base_url() ?>Account"><i class="fas fa-user"></i> Account</a></li>
-	<li class="nav-item "><a href="<?= base_url() ?>Setting"><i class="fas fa-cog"></i> Setting</a></li>
+	<li class="nav-item "><a href="<?= base_url() ?>Detail_user"><i class="fas fa-user"></i> Account</a></li>
+
+								 </a>	<li class="nav-item "><a href="<?= base_url() ?>Setting"><i class="fas fa-cog"></i> Setting</a></li>
       <li class="nav-item ">
 	  <a class="nav-link" href="<?= base_url() ?>logout"><i class="fas fa-sign-out-alt"></i> <span>Déconnexion </span></a>	
 </li>
