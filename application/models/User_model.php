@@ -16,4 +16,12 @@ class User_model extends CI_Model
        
 
     }
+
+    public function update_user($data,$id){
+        $query = $this->db->update('utilisateur',$data,array('id_user'=> $id));
+
+        // if ($this->input->post("oldpassword")==$this->session->userdata('password');) {
+        //     # code...
+        // } hta nfker fiiha dyall ld password 
+    }
 }

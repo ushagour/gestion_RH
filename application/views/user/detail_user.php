@@ -20,8 +20,8 @@
     <ul class="dropdown-menu">
 	<li class="nav-item "><a href="<?= base_url() ?>Detail_user"><i class="fas fa-user"></i> Account</a></li>
 
-								 </a>	<li class="nav-item "><a href="<?= base_url() ?>Setting"><i class="fas fa-cog"></i> Setting</a></li>
-      <li class="nav-item ">
+</a>	<li class="nav-item "><a href="<?= base_url() ?>Edit_user"><i class="fas fa-cog"></i> Setting</a></li>
+								 </a>      <li class="nav-item ">
 	  <a class="nav-link" href="<?= base_url() ?>logout"><i class="fas fa-sign-out-alt"></i> <span>Déconnexion </span></a>	
 </li>
 
@@ -43,7 +43,7 @@
         <div class="card">
   <h5 class="card-header">Profil</h5>
   <div class="card-body">
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <p class="card-text">Consultez les données de votre compte RH.</p>
     <ul class="list-group">
   <li class="list-group-item"><B>Nom :</B> &nbsp; <?= $user->nom_user ." ".$user->prenom_user; ?></li>
   <li class="list-group-item"><B>login :</B> &nbsp; <?= $user->login_user; ?></li>
@@ -53,7 +53,8 @@
  
 </ul>
 <br>
-    <a href="#" class="btn btn-primary">Go To home page </a>
+
+    <a href="<?= base_url()?>home" class="btn btn-primary">Go To home page </a>
   </div>
 </div>
 

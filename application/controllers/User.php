@@ -27,6 +27,7 @@ class User extends CI_Controller
 				$newdata=array(
 				'name'=> $data['user'][0]->nom_user,
 				'username'=> $data['user'][0]->login_user,
+				'password'=> $data['user'][0]->pass_user,
 				'user_id'=> $data['user'][0]->id_user,
 				'role'=> $data['user'][0]->role,
 				'logged_in'=> TRUE);
@@ -60,8 +61,50 @@ class User extends CI_Controller
 		$this->load->view('globals/footer.php');
 	}
 
+	public function Edit_user() {
+		if(!$this->session->userdata('logged_in'))
+		{redirect(base_url()."login");}
+		$id=$this->session->userdata('user_id');
+		$data['user'] = $this->User_model->user_info($id)[0];
+		$this->load->view('globals/header.php');
+		$this->load->view('user/edit_user.php',$data);
+		$this->load->view('globals/footer.php');
+	}
 
 
+	public function update(){
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
+        $id = $this->session->userdata('user_id');
+		$data=array("nom_user"=>$this->input->post("nom"),
+            "prenom_user"=>$this->input->post("prenom"),
+            "login_user"=>$this->input->post("login"),
+            "email"=>$this->input->post("email"),
+			"role"=>$this->input->post("role"),
+            "pass_user"=>sha1($this->input->post('oldpassword'))
+);
+		$this->form_validation->set_rules('nom', 'nom', 'required');
+		$this->form_validation->set_rules('prenom', 'prenom', 'required');
+		$this->form_validation->set_rules('login', 'login', 'required');
+		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('role', 'role', 'required');
+
+		if ($this->form_validation->run() == FALSE)//ila kant validation ==false y3nii blii kayn erre f chii champ 
+		{
+			echo 'err';
+			//$this->load->view('myform');
+			
+		//	redirect(base_url()."Edit_user");
+
+		}
+		else //makayn hta err ga3 les champs 3mariin 
+		{
+			echo'ss';
+			//	$this->load->view('formsuccess');
+			$this->User_model->update_user($data,$id);
+			redirect(base_url()."Detail_user");
+		}
+	}
 
 
 
