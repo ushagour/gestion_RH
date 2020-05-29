@@ -27,6 +27,15 @@ class Perssonel_model extends CI_Model {
         $this->db->update("perssonel");
         // echo $state; pour le test des variabes apre lexecution du requette
         }
+    public function check_all_personnel(){//red lbal men trtiib dyll les parametres 
+
+        $this->db->set('checked', true);
+        //TODO fix check all where date = now 
+       // $this->db->like('date_Added',date('Y-m-d'));
+
+        $this->db->update("perssonel");
+        // echo $state; pour le test des variabes apre lexecution du requette
+        }
     
     public function personnel_to_edit($id){
         $this->db->select('*');

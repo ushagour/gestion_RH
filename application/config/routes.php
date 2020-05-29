@@ -67,6 +67,7 @@ $route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichag
 
 
 $route['print-etat'] = 'Dashbord/print_etat';//loader dyal page affichage 
+$route['check-all'] = 'Dashbord/check_all';//check-all perssonel to ptint them
 
 
 $route['generateFPDF/(:any)'] = 'Dashbord/generateFPDF/$1';//loader dyal generate pdf dyal koola personnel

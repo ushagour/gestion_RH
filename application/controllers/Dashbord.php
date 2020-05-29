@@ -124,6 +124,17 @@ if($res==true)
     
 
 	}
+	public function check_all() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
+
+       $this->Perssonel_model->check_all_personnel();
+		redirect(base_url()."affichage");
+    // echo $state;
+
+    
+
+	}
 
 
 

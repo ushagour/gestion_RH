@@ -57,11 +57,14 @@
 				</form>
 
 				<div
-					style="text-align: right!important;     padding-bottom: 5px; <?= ($canprint)?" ":"display: none;" ?>  ">
+					style="text-align: right!important;     padding-bottom: 5px;  ">
 					<a href="<?=base_url()?>print-etat" target="_blank" class="btn btn-info btn-flat"
-						style=" border-radius: 30px; "><i class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
-				</div>
+						style=" border-radius: 30px; <?= ($canprint)?" ":"display: none;" ?>  "><i class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
+						
 
+					<a href="<?=base_url()?>check-all" style=" border-radius: 30px; " class="btn btn-info btn-flat">All</a>
+
+					</div>
 				<br>
 			</header>
 			<div class="panel-body">
@@ -107,15 +110,13 @@
 
 
 
-
 									<a href="#detaimodal<?=$item->id;?>" data-toggle="modal"
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
 									<button onclick="del(<?=$item->id;?>)" class="btn btn-danger"><i
 											class="fas fa-trash"></i></button>
 									<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>"
 										class="btn btn-info"><i class="fas fa-user-edit"></i></a>
-
-									<button onclick="valider_ar(<?php echo $item->id ;?>,<?php echo $item->checked ;?>)"
+									<button onclick="valider_ar(<?php echo $item->id ;?>,<?php echo  $item->checked ;?>)"
 										class="btn btn-<?= ($item->checked)?"success":"dark" ?>"><i class="fa fa-check"
 											aria-hidden="true"></i></button>
 
@@ -187,7 +188,7 @@
 			url: "<?php echo base_url();?>delete-personnel/" + id,
 
 			success: function (data) {
-				$('#o').load(location.href + " #o");
+				$('#tab').load(location.href + " #tab");
 
 
 				console.log(data);

@@ -197,6 +197,9 @@
 			height: 100px;
 			width: 100%;
 			border: 1px solid #333;
+
+			text-align: center!important;
+			
 		}
 
 		/* @media print {
@@ -299,10 +302,8 @@
 		</table>
 
 <div class="instruction">
-<p class="text-left">
-<?= 'A Rabat, Le : '.date("d-m-Y",strtotime(date('Y-m-d'))); ?>
-
-</p>
+<b><p><?= 'A Rabat, Le : '.date("d-m-Y",strtotime(date('Y-m-d'))); ?>
+</p></b>
 
 </div>
 		
