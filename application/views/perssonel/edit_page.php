@@ -164,7 +164,9 @@
 
 				<input type="submit" class="btn btn-success " style="margin-right: 10px;" value="valider">
 				<!-- TODO BUTTON RETOUR EN ARRIERE  -->
-				<input type="button" class="btn btn-info " style="margin-right: 10px;" value="annuler">
+				<button onclick="location.href='<?= base_url() ?>affichage'"    class="btn btn-info " style="margin-right: 10px;"  type="button">
+				Anuuler
+         </button>
 			</center>
 
 
