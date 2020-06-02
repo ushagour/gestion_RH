@@ -1,41 +1,4 @@
-<div id="content">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
 
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-     
-        </button>
-        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-align-justify"></i>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">
-               
-				<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-	<i class="fas fa-user-cog"></i>
-    </button>
-    <ul class="dropdown-menu">
-	<li class="nav-item "><a href="<?= base_url() ?>Detail_user"><i class="fas fa-user"></i> Account</a></li>
-
-</a>	<li class="nav-item "><a href="<?= base_url() ?>Edit_user"><i class="fas fa-cog"></i> Setting</a></li>
-								 </a>      <li class="nav-item ">
-	  <a class="nav-link" href="<?= base_url() ?>logout"><i class="fas fa-sign-out-alt"></i> <span>Déconnexion </span></a>	
-</li>
-
-    </ul>
-  </div>
-  <li class="nav-item ">	
-  <a class="nav-link" href=""> /  <span> Welcome : <?php echo $this->session->userdata('name');?> </span></a>	
-
-</li>    
-            
-            </ul>
-        </div>
-    </div>
-</nav>
 	<div class="col-md-12">
 		<h4><small> Liste du Personnel </small></h4>
 		<hr>
@@ -56,15 +19,16 @@
 
 				</form>
 
-				<div
-					style="text-align: right!important;     padding-bottom: 5px;  ">
+				<div style="text-align: right!important;     padding-bottom: 5px;  ">
 					<a href="<?=base_url()?>print-etat" target="_blank" class="btn btn-info btn-flat"
-						style=" border-radius: 30px; <?= ($canprint)?" ":"display: none;" ?>  "><i class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
-						
+						style=" border-radius: 30px; <?= ($canprint)?" ":"display: none;" ?>  "><i
+							class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
 
-					<a href="<?=base_url()?>check-all" style=" border-radius: 30px; " class="btn btn-info btn-flat">All</a>
 
-					</div>
+					<a href="<?=base_url()?>check-all" style=" border-radius: 30px; "
+						class="btn btn-info btn-flat">All</a>
+
+				</div>
 				<br>
 			</header>
 			<div class="panel-body">
@@ -72,10 +36,10 @@
 
 				<?php	if(isset($infoperssonel)) { ?>
 
-				<div class="table-responsive table--no-card table-dark m-b-30">
-					<table class="table table-borderless table-striped table-earning">
+				<div class="table  table-responsive">
+					<table class="table">
 
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th>id</th>
 								<th>nom</th>
@@ -87,7 +51,7 @@
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="thead-light">
 							<tr class="gradeX">
 								<?php 
 					
@@ -116,7 +80,8 @@
 											class="fas fa-trash"></i></button>
 									<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>"
 										class="btn btn-info"><i class="fas fa-user-edit"></i></a>
-									<button onclick="valider_ar(<?php echo $item->id ;?>,<?php echo  $item->checked ;?>)"
+									<button
+										onclick="valider_ar(<?php echo $item->id ;?>,<?php echo  $item->checked ;?>)"
 										class="btn btn-<?= ($item->checked)?"success":"dark" ?>"><i class="fa fa-check"
 											aria-hidden="true"></i></button>
 
@@ -132,7 +97,7 @@
 								<div class="modal-dialog modal-sm" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
+											<h5 class="modal-title" id="smallmodalLabel">Perssonel </h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
@@ -140,17 +105,30 @@
 										<div class="modal-body">
 											<div class="card">
 												<div class="card-body">
-												
-														<img src="<?= base_url() ?>assets/files/team2.jpg"  style="width:100%">
-														
-														<p class="title"> <?=$item->nom;?> <?=$item->prenom;?></p>
-														<p>Harvard University</p>
+
+													<ul class="list-group">
+														<li class="list-group-item"><B>Nom :</B> &nbsp;
+														<?=$item->nom;?> <?=$item->prenom;?></li>
 													
-														<p><button>Contact</button></p>
+														<li class="list-group-item"><B>CIN :</B> &nbsp;
+															<?= $item->CIN; ?></li>
+													
+														<!-- <li class="list-group-item"><B>Nom :</B> &nbsp; Ali oucahagour</li> -->
+
+													</ul>
+													<!-- <img src="<?= base_url() ?>assets/files/team2.jpg"
+														style="width:100%"> -->
+
 												
+
+
 												</div>
 												<div class="card-footer">
-													<strong class="card-title mb-3">Profile Card</strong>
+													<strong class="card-title mb-3">
+													
+<button class="btn">
+	Contacter <span class="badge badge-primary"></span>
+</button>													</strong>
 												</div>
 											</div>
 										</div>
@@ -165,6 +143,7 @@
 
 					</table>
 				</div>
+
 				<?php } ?>
 			</div>
 
@@ -218,4 +197,5 @@
 		});
 
 	}
+
 </script>

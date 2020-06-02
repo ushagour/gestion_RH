@@ -153,11 +153,11 @@
 					</li>
 				</ul>
 				<ul class="list-unstyled CTAs">
-					<!-- <li>
+					<!-- <!-- <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
                 </li> -->
+                <li>
+                    <a href="<?=base_url();?>/Nouveau-Utilisateur" class="article">Nouveau-Utilisateur</a>
+                </li> 
 				</ul>
 			</nav>

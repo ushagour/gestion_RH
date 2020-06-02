@@ -87,6 +87,8 @@ $route['search'] = 'Dashbord/SearchPersonnel';// page dyal recherch
 //Users ***************************************************************************************************************
 $route['login'] = 'User/login'; 														// Login Page and function 
 $route['Detail_user'] = 'User/Detail_user'; 														// page dyal detail dyal luser 
+$route['Nouveau-Utilisateur'] = 'User/Ajouter_user'; 														// page dyal detail dyal luser 
+$route['add_user'] = 'User/Add_user'; 														// page dyal detail dyal luser 
 $route['Edit_user'] = 'User/Edit_user'; 														// page dyal modification dyal luser 
 $route['update'] = 'User/update'; 														// evenement  dyal modification dyal luser 
 $route['logout'] = 'User/logout'; 														// logout 

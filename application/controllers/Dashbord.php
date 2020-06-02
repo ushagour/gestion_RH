@@ -12,7 +12,9 @@ class Dashbord extends CI_Controller {
 
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-		$this->load->view('globals/header.php');
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+        
 		$this->load->view('globals/home_page.php');
 		$this->load->view('globals/footer.php');
 
@@ -24,7 +26,9 @@ class Dashbord extends CI_Controller {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
 
-		$this->load->view('globals/header.php');
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
 		$this->load->view('perssonel/add_page.php');
 		$this->load->view('globals/footer.php');
 	}
@@ -84,7 +88,7 @@ class Dashbord extends CI_Controller {
                 "utilisateur"=> $user);
                 
                 $res =	$this->Perssonel_model->ajouter($data);
-if($res==true)
+if($res)
 {
     $this->session->set_flashdata('success', "Le Perssonel a été enregistré !"); 
 }else{
@@ -128,9 +132,9 @@ if($res==true)
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
 
-       $this->Perssonel_model->check_all_personnel();
-		redirect(base_url()."affichage");
-    // echo $state;
+     $res= $this->Perssonel_model->check_all_personnel();
+		//redirect(base_url()."affichage");
+     echo $res;
 
     
 
@@ -143,7 +147,9 @@ if($res==true)
         {redirect(base_url()."login");}
         $data['item'] = $this->Perssonel_model->personnel_to_edit($id)[0];
 
-		$this->load->view('globals/header.php');
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
 		$this->load->view('perssonel/edit_page.php', $data);
 		$this->load->view('globals/footer.php');
 
@@ -268,7 +274,9 @@ if(true){
    
 		
 
-		$this->load->view('globals/header.php');
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
 		$this->load->view('perssonel/search_result.php', $data);
 		$this->load->view('globals/footer.php');
 

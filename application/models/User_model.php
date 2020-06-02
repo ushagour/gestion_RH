@@ -16,6 +16,11 @@ class User_model extends CI_Model
        
 
     }
+    public function ajouter($data) {
+        $this->db->insert("utilisateur", $data);
+    return $last_id = $this->db->insert_id();
+
+    }
 
     public function update_user($data,$id){
         $query = $this->db->update('utilisateur',$data,array('id_user'=> $id));
