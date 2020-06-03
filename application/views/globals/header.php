@@ -152,6 +152,8 @@
                     <i class="fas fa-comment-dots"></i>                    	<span>Contact</span></a>
 					</li>
 				</ul>
+
+<?php if ($this->session->userdata('role')==2) :?>
 				<ul class="list-unstyled CTAs">
 					<!-- <!-- <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
@@ -160,4 +162,5 @@
                     <a href="<?=base_url();?>/Nouveau-Utilisateur" class="article">Nouveau-Utilisateur</a>
                 </li> 
 				</ul>
+<?php endif;?>
 			</nav>
