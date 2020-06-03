@@ -298,7 +298,9 @@ if(true){
         $this->session->set_userdata('is_check', 0);//todo khassni ndwz variable en parametres 
         $data['canprint'] = $this->Perssonel_model->count_to_print();
 
-		$this->load->view('globals/header.php');
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
 		$this->load->view('perssonel/see_page.php', $data);
 		$this->load->view('globals/footer.php');
 

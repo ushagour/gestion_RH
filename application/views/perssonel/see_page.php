@@ -1,14 +1,13 @@
 
-	<div class="col-md-12">
 		<h4><small> Liste du Personnel </small></h4>
 		<hr>
 
+		<div class="row">
+		<div class="col-md-12">
+		<div class="col-md-4">
 
-
-		<section class="panel" id="tab">
-			<header class="panel-heading">
-				<form action="<?php echo base_url();?>search" method="post">
-					<div class="input-group col-md-4">
+				<form action="<?php echo base_url();?>search" class="col" method="post">
+					<div class="input-group ">
 						<input type="text" class="form-control" name="CIN" placeholder="Search personnel par cin ..">
 						&nbsp;
 						<div class="input-group-btn">
@@ -18,8 +17,9 @@
 					</div>
 
 				</form>
+				</div>
 
-				<div style="text-align: right!important;     padding-bottom: 5px;  ">
+				<div class="col" style="text-align: right!important; padding-bottom: 5px;  ">
 					<a href="<?=base_url()?>print-etat" target="_blank" class="btn btn-info btn-flat"
 						style=" border-radius: 30px; <?= ($canprint)?" ":"display: none;" ?>  "><i
 							class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
@@ -29,14 +29,13 @@
 						class="btn btn-info btn-flat">All</a>
 
 				</div>
-				<br>
-			</header>
-			<div class="panel-body">
+
+			
 
 
 				<?php	if(isset($infoperssonel)) { ?>
 
-				<div class="table  table-responsive">
+				<div class="table-responsive-md"  id="tab">
 					<table class="table">
 
 						<thead class="thead-dark">
@@ -145,14 +144,15 @@
 				</div>
 
 				<?php } ?>
-			</div>
+			
 
 
-		</section>
+		</div>
 
 
 
-	</div>
+		</div>
+
 </div>
 
 <!-- modal small -->
