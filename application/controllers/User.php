@@ -30,7 +30,7 @@ class User extends CI_Controller
 				'username'=> $data['user'][0]->login_user,
 				'password'=> $data['user'][0]->pass_user,
 				'user_id'=> $data['user'][0]->id_user,
-				'role'=> $data['user'][0]->role,
+				'is_super_admin'=> $data['user'][0]->is_super_admin,
 				'logged_in'=> TRUE);//this is the indicator if user logged in or not
 
 				$this->session->set_userdata($newdata);

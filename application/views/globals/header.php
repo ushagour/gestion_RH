@@ -153,7 +153,7 @@
 					</li>
 				</ul>
 
-<?php if ($this->session->userdata('role')==2) :?>
+<?php if ($this->session->userdata('is_super_admin')) :?>
 				<ul class="list-unstyled CTAs">
 					<!-- <!-- <li>
                     <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
