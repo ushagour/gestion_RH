@@ -173,3 +173,42 @@ a.article:hover {
     transition: all 0.3s;
 
 }
+
+/* ---------------------------------------------------
+    SCROLL UP BUTTON 
+----------------------------------------------------- */
+
+.scrollup {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	display: none;
+	color: white;
+	background-color: #7386D5;
+	border: 1px solid #7386D5;
+	font-size: 20px;
+    text-align: right!important;
+	line-height: 24px;
+    padding: 9px;
+
+}
+ 
+.scrollup:hover {
+	color: white;
+}
+
+
+/* ---------------------------------------------------
+    SCROLL UP BUTTON 
+----------------------------------------------------- */
+:root {
+    --a_gold: #AE994E;
+    --text_gold: #AE994E;
+    --elm_gold: #AE994E;
+    --error:red;
+  }
+  .error{
+    color: var(--error);
+  } 
