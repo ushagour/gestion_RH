@@ -3,7 +3,7 @@
 		<hr>
 
 		<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" id="tab">
 		<div class="col-md-4">
 
 				<form action="<?php echo base_url();?>search" class="col" method="post">
@@ -28,6 +28,7 @@
 					<a href="<?=base_url()?>check-all" style=" border-radius: 30px; "
 						class="btn btn-info btn-flat">All</a>
 
+       
 				</div>
 
 			
@@ -35,7 +36,7 @@
 
 				<?php	if(isset($infoperssonel)) { ?>
 
-				<div class="table-responsive-md"  id="tab">
+				<div class="table-responsive-md"  >
 					<table class="table">
 
 						<thead class="thead-dark">

@@ -34,7 +34,7 @@ class Perssonel_model extends CI_Model {
         $this->db->like('date_Added',date('Y-m-d'));
 
         $this->db->update("perssonel");
-        $query = $this->db->get('perssonel');
+        //$query = $this->db->get('perssonel');
 
         // echo $state; pour le test des variabes apre lexecution du requette
         }

@@ -132,9 +132,9 @@ if($res)
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
 
-     $res= $this->Perssonel_model->check_all_personnel();
-		//redirect(base_url()."affichage");
-     echo $res;
+     $this->Perssonel_model->check_all_personnel();
+	redirect(base_url()."affichage");
+     //echo $res;
 
     
 
