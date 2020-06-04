@@ -10,3 +10,11 @@ if (!function_exists('IsLogged')) {
         {redirect(base_url()."login");}
     }
 }
+
+if (!function_exists('say')) {
+
+    function say()
+    {
+       return 'this is function helper ';
+    }
+}
