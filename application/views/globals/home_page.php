@@ -1,14 +1,60 @@
-
-
-<h2>Collapsible Sidebar Using Bootstrap 4</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2>Gestion RH Acceues </h2>
 
 <div class="line"></div>
 
-
-
-<h3>Lorem Ipsum Dolor</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="row">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Ajouter un nouveau </h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+    <div class="card">
+			<div class="card-body">
+				<h5 class="card-title">les demandes d’attestation</h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+    </div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">les demandes de congés</h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Administration </h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+    <div class="card">
+			<div class="card-body">
+				<h5 class="card-title"> Paramétrage</h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+    </div>
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Mon Profile</h5>
+				<p class="card-text">Content</p>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <!-- end of div.container  see navbarview -->

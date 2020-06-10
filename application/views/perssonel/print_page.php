@@ -244,7 +244,6 @@
 		<table id="mytable" class="enteteTab" border="1" style="width:100%; border-collapse: collapse;">
 			<tbody>
 				<tr class="listHeading">
-					<th style="width:2%; border: 1px solid black;"><strong>id</strong></th>
 					<th style="width:7%; border: 1px solid black;"> cin</th>
 					<th style="width:10%; border: 1px solid black;">nom</th>
 					<th style="width:10%; border: 1px solid black;"> prenom</th>
@@ -277,12 +276,8 @@
 				</tr> -->
 
 				<tr class="data" style="border: 1px solid #000000;">
-					<td style="width:2%; border: 1px solid black;text-align:center">
-            
-                     <b><?= $row->id;?></b>
-                        
-					</td>
-					<td  style="width:7%; ">
+				
+					<td  style="width:7%;  solid black;text-align:center ">
 						<p> <?= $row->CIN;?></p>
 					</td>
 					<td  style="width:10%; ">
