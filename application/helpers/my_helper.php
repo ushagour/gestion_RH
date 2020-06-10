@@ -11,10 +11,36 @@ if (!function_exists('IsLogged')) {
     }
 }
 
-if (!function_exists('say')) {
+if (!function_exists('encIT')) {
 
-    function say()
+    function encIT($cont,$txt)
     {
-       return 'this is function helper ';
+        $cont->encryption->initialize(
+            array(
+                'driver' => 'openssl',
+                    'cipher' => 'AES-192',
+                    'mode' => 'ctr',
+                    'key' => 'KaPdSgV'
+            )
+    );
+    return $cont->encryption->encrypt($txt);
+
+
+    }
+}
+if (!function_exists('decIT')) {
+
+    function decIT($cont,$txt)
+    {
+        $cont->encryption->initialize(
+            array(
+                'driver' => 'openssl',
+                    'cipher' => 'AES-192',
+                    'mode' => 'ctr',
+                    'key' => 'KaPdSgV'
+            )
+    );
+   return  $cont->encryption->decrypt($txt);
+
     }
 }

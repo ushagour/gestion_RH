@@ -74,7 +74,7 @@ class Dashbord extends CI_Controller {
 				//print_r($file);
 			}
 
-			$data=array("nom"=>$this->input->post("nom"),
+			$data=array("nom"=>$this->input->post("nom"),//"nom"=> encIT($this,$this->input->post("nom"))
 				"prenom"=>$this->input->post("prenom"),
 				"date_naissance"=>$this->input->post("date_naissance"),
 				"CIN"=>$this->input->post("CIN"),
@@ -381,6 +381,17 @@ if(true){
    $u= $this->session->userdata('user_id');
 print($u);
 		// $this->load->view('globals/test2.php');
+
+
+	}
+
+	public function ky() {
+ 
+    $plain_text = 'This is a plain-text message!';
+     
+     $varenc= encIT($this,$plain_text);
+     echo $varenc;
+     echo  "<br>".decIT($this,$varenc);
 
 
 	}
