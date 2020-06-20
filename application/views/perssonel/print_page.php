@@ -242,14 +242,7 @@
 
 		<!-- ************************************ -->
 		<table id="mytable" class="enteteTab" border="1" style="width:100%; border-collapse: collapse;">
-			<tbody>
-				<tr class="listHeading">
-					<th style="width:7%; border: 1px solid black;"> cin</th>
-					<th style="width:10%; border: 1px solid black;">nom</th>
-					<th style="width:10%; border: 1px solid black;"> prenom</th>
-					<th style="width:10%; border: 1px solid black;"> telephone</th>
-				</tr>
-			</tbody>
+		
 		</table>
 		<!-- ************************************ -->
 
@@ -258,7 +251,14 @@
 
 		<table  id="mytable" border="1" style="width:100%; border-collapse: collapse;">
 
-
+		<theader>
+				<tr class="listHeading">
+					<th style="width:10%; border: 1px solid black;"> cin</th>
+					<th style="width:30%; border: 1px solid black;">nom</th>
+					<th style="width:30%; border: 1px solid black;"> prenom</th>
+					<th style="width:30%; border: 1px solid black;"> telephone</th>
+				</tr>
+			</theader>
 
 			<tbody>
 
@@ -277,16 +277,16 @@
 
 				<tr class="data" style="border: 1px solid #000000;">
 				
-					<td  style="width:7%;  solid black;text-align:center ">
+					<td  style="width:10%;  solid black;">
 						<p> <?= $row->CIN;?></p>
 					</td>
-					<td  style="width:10%; ">
+					<td  style="width:30%;">
 						<p> <?= $row->nom;?></p>
 					</td>
-					<td  style="width:10%; ">
+					<td  style="width:30%; ">
 						<p> <?= $row->prenom;?></p>
 					</td>
-					<td  style="width:10%; ;text-align:center">
+					<td  style="width:30%; ">
 						<p> <?= $row->telephone;?></p>
 					</td>
 
