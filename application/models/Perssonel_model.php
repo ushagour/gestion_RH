@@ -31,7 +31,7 @@ class Perssonel_model extends CI_Model {
 
         $this->db->set('checked', true);
         //TODO fix check all where date = now 
-        $this->db->like('date_Added',date('Y-m-d'));
+        //$this->db->like('date_Added',date('Y-m-d'));
 
         $this->db->update("perssonel");
         //$query = $this->db->get('perssonel');

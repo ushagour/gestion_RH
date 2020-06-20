@@ -25,10 +25,12 @@
 							class="fa fa-print"></i><b>&nbsp;Imprimer</b></a>
 
 
-					<a href="<?=base_url()?>check-all" style=" border-radius: 30px; "
-						class="btn btn-info btn-flat">All</a>
 
-       
+						<button
+										onclick="check_all()" style=" border-radius: 30px; "
+										class="btn btn-info btn-flat"><i class="fa fa-check"
+											aria-hidden="true"></i> Selectionne tout</button>
+
 				</div>
 
 			
@@ -185,6 +187,24 @@
 		jQuery.ajax({
 			type: "GET",
 			url: "<?php echo base_url();?>check/" + id + "/" + state,
+
+			success: function (data) {
+				$('#tab').load(location.href + " #tab");
+
+
+				console.log(data);
+			},
+			error: function (data) {
+				//  alert("impression impossible !");
+			}
+		});
+
+	}
+
+	function check_all() {
+		jQuery.ajax({
+			type: "GET",
+			url: "<?php echo base_url();?>check-all",
 
 			success: function (data) {
 				$('#tab').load(location.href + " #tab");
