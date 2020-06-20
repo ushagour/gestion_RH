@@ -7,7 +7,7 @@
   <h5 class="card-header">Profil</h5>
   <div class="card-body">
     <p class="card-text">Gérez vos informations, ainsi que la confidentialité et la sécurité de vos données pour profiter au mieux des services RH.</p>
-    <form action="<?php echo base_url();?>update" enctype="multipart/form-data" method="post">
+    <form action="<?php echo base_url();?>update_user" enctype="multipart/form-data" method="post">
 
 
   <div class="form-row">
