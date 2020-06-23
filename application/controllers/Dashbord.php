@@ -91,6 +91,8 @@ class Dashbord extends CI_Controller {
 if($res)
 {
     $this->session->set_flashdata('success', "Le Perssonel a été enregistré !"); 
+    $this->User_model->tracit("user/  add personnel");
+
 }else{
     $this->session->set_flashdata('error', "erreur veuillez réessayer");
 }
@@ -112,7 +114,9 @@ if($res)
 	public function delete($id) {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-		$this->Perssonel_model->delete($id);
+        $this->Perssonel_model->delete($id);
+        $this->User_model->tracit("user/  delete personnel");
+
 		redirect(base_url()."affichage");
 	
 
@@ -121,7 +125,12 @@ if($res)
 	public function check($id,$state) {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-		$this->Perssonel_model->check_personnel($id,!$state);
+        $this->Perssonel_model->check_personnel($id,!$state);
+
+        $this->User_model->tracit( (!$state)?"user/  cocha personnel":" user/ decocha persoonel");
+        // kansswlooh ila kan l3aks dyal state == true  idan ra raykoochii sinn ghaydecoche
+       // fhalat coche y3ni l3aks dyal state hwa 1
+
 		//redirect(base_url()."affichage");
     // echo $state;
 	// echo !$state;
@@ -133,6 +142,8 @@ if($res)
         {redirect(base_url()."login");}
 
      $this->Perssonel_model->check_all_personnel();
+     
+
 	    redirect(base_url()."affichage");
      //echo $res;
 
@@ -206,8 +217,10 @@ if(true){
             
            
                 
-                echo 'Here';
+             //   echo 'Here';
                 $this->Perssonel_model->update_personnel($data,$id);
+                $this->User_model->tracit("user/  update personnel");
+
                 redirect(base_url()."affichage");
       }
       else {
@@ -297,6 +310,7 @@ if(true){
     
         $this->session->set_userdata('is_check', 0);//todo khassni ndwz variable en parametres 
         $data['canprint'] = $this->Perssonel_model->count_to_print();
+		//$this->User_model->tracit("user/ affichage  personnel");
 
         $this->load->view('globals/header.php');
         $this->load->view('globals/navbar.php');
@@ -369,6 +383,7 @@ if(true){
         //     }
 
         // }
+		$this->User_model->tracit("user/ print etat");
 
         $this->load->view('perssonel/print_page', $data);
     }
@@ -382,7 +397,10 @@ if(true){
 print($u);
 		// $this->load->view('globals/test2.php');
 
+        $ip = gethostbyname(base_url());
 
+        echo $ip;
+        
 	}
 
 	public function ky() {

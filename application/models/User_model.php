@@ -29,4 +29,12 @@ class User_model extends CI_Model
         //     # code...
         // } hta nfker fiiha dyall ld password 
     }
+    public function tracit($action=""){
+        $data_trac=array(
+            'action'=>$action,
+            'user_id'=> $this->session->userdata('user_id'),
+            'date'=>  date('Y-m-d h:i:sa')
+          );
+        $this->db->insert("pre_trace", $data_trac);
+    }
 }

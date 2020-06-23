@@ -34,13 +34,19 @@ class User extends CI_Controller
 				'logged_in'=> TRUE);//this is the indicator if user logged in or not
 
 				$this->session->set_userdata($newdata);
+			
+		
+					 $this->User_model->tracit("user loged in ");
 				redirect(base_url().'home');
 
-				if($remember != 1)
-{
-    $this->session->sess_expire_on_close = TRUE; //idk if this work or not
-    $this->session->sess_expiration = 7200;
-}
+// 				if($remember != 1)
+// {
+//     $this->session->sess_expire_on_close = TRUE; //idk if this work or not
+//     $this->session->sess_expiration = 7200;
+// }
+
+          
+
 
 			}
 			else{
@@ -62,6 +68,8 @@ class User extends CI_Controller
 	public function Detail_user() {
 		if(!$this->session->userdata('logged_in'))
 		{redirect(base_url()."login");}
+		$this->User_model->tracit("Detail info user");
+
 		$id=$this->session->userdata('user_id');
 		$data['user'] = $this->User_model->user_info($id)[0];
 		$this->load->view('globals/header.php');
@@ -74,6 +82,8 @@ class User extends CI_Controller
 	public function Edit_user() {
 		if(!$this->session->userdata('logged_in'))
 		{redirect(base_url()."login");}
+
+
 		$id=$this->session->userdata('user_id');
 		$data['user'] = $this->User_model->user_info($id)[0];
 		$this->load->view('globals/header.php');
@@ -111,9 +121,11 @@ class User extends CI_Controller
 		}
 		else //makayn hta err ga3 les champs 3mariin 
 		{
-			echo'ss';
+			//echo'ss';
 			//	$this->load->view('formsuccess');
 			$this->User_model->update_user($data,$id);
+			$this->User_model->tracit("Edit info user");
+
 			redirect(base_url()."Detail_user");
 		}
 	}
@@ -123,7 +135,7 @@ class User extends CI_Controller
 	public function Ajouter_user() {
 		if(!$this->session->userdata('logged_in'))
 		{redirect(base_url()."login");}
-	
+
 		$this->load->view('globals/header.php');
 		$this->load->view('globals/navbar.php');
 
@@ -159,7 +171,9 @@ class User extends CI_Controller
                 $res =	$this->User_model->ajouter($data);
 if($res)
 {
-    $this->session->set_flashdata('success', "L'utilisateure a été enregistré !"); 
+	$this->session->set_flashdata('success', "L'utilisateure a été enregistré !"); 
+	$this->User_model->tracit("Ajouter un nouveau user");
+
 }else{
     $this->session->set_flashdata('error', "Erreur veuillez réessayer");
 }
@@ -176,6 +190,9 @@ if($res)
 
 	public function Logout() {
 		$this->session->sess_destroy();
+		$this->User_model->tracit("User loged out");
+
 		redirect(base_url()."login");
+
 	}
 }
