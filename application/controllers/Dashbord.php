@@ -60,7 +60,7 @@ class Dashbord extends CI_Controller {
 			$config['max_size']=10000000; // 1000KB = 1MO
 			$config['max_width']=300000;
 			$config['max_height']=300000;
-			$config['encrypt_name']=TRUE;
+            $config['encrypt_name']=false;
 
 			$this->upload->initialize($config);
 
@@ -70,8 +70,9 @@ class Dashbord extends CI_Controller {
 			}
 
 			else {
-				$file=$this->upload->data();
-				//print_r($file);
+                $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+                $file_name = $upload_data['file_name'];
+             //  print_r($file);
 			}
 
 			$data=array("nom"=>$this->input->post("nom"),//"nom"=> encIT($this,$this->input->post("nom"))
@@ -84,7 +85,7 @@ class Dashbord extends CI_Controller {
 				"service"=>$this->input->post("service"),
 				"poste"=>$this->input->post("poste"),
 				"salaire"=>$this->input->post("salaire"),
-				"photo"=>isset($file["file_name"])?$file["file_name"]:"no_image.png", //ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
+                "photo"=>($file_name)?$file_name:"no_image.png",//ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
                 "utilisateur"=> $user);
                 
                 $res =	$this->Perssonel_model->ajouter($data);
@@ -188,8 +189,10 @@ if($res)
         $config['max_size']=10000000; // 1000KB = 1MO
         $config['max_width']=300000;
         $config['max_height']=300000;
-        $config['encrypt_name']=TRUE;
+        $config['encrypt_name']=false;
 
+      
+     //todo 9add l3iiba dyal image name 
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload()) {
@@ -198,8 +201,9 @@ if($res)
         }
 
         else {
-            $file=$this->upload->data();
-            //print_r($file);
+            $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
+            $file_name = $upload_data['file_name'];
+           print_r($file);
         }
 if(true){
         $data=array("nom"=>$this->input->post("nom"),
@@ -212,8 +216,8 @@ if(true){
             "service"=>$this->input->post("service"),
             "poste"=>$this->input->post("poste"),
             "salaire"=>$this->input->post("salaire"),
-            "photo"=>isset($file["file_name"])?$file["file_name"]:"no_image.png" //ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
-);
+            "photo"=>($file_name)?$file_name:"no_image.png",//ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
+        );
             
            
                 
@@ -316,6 +320,90 @@ if(true){
         $this->load->view('globals/navbar.php');
 
 		$this->load->view('perssonel/see_page.php', $data);
+		$this->load->view('globals/footer.php');
+
+    }
+    
+    public function serch_for_attestation(){
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
+        $cin=(isset($_POST['CIN'])?$_POST['CIN']:'');
+
+
+        /*************     pagination fes articles resont    ************* */
+        $config = array();
+        $config['reuse_query_string'] = true ;
+        $config["base_url"] = base_url()."Dashbord/demande_attestation/";
+        $config["total_rows"] = $this->Perssonel_model->get_count($cin);
+        $config["per_page"] = 5;
+        $config['num_links'] =1 ;
+        $config['reuse_query_string'] = true ;
+ 
+        // Bootstrap 4 Pagination fix
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link ">';
+        $config['prev_tag_close']   = '</span></li>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '</span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close']   = '</span></li>';
+        $config['last_tag_open'] 	 = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] 	 = '</span></li>';
+        $config['first_tag_open'] 	 = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] 	 = '</span></li>';
+        $config['full_tag_close']   = '</ul></nav></div>';
+
+
+
+
+
+        
+
+        $this->pagination->initialize($config);
+        if ($this->uri->segment(3)) {
+            $page =($this->uri->segment(3));
+        } else {
+            $page=0;
+        }
+        $data["links"] = $this->pagination->create_links();
+
+        // pagination
+        $data['infoperssonel']=$this->Perssonel_model->searshit($cin, $config["per_page"], $page);
+
+        $data["nbr_page"]=("Nombre d'articles  : ".$config["total_rows"]);
+        
+        // views    
+
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
+		$this->load->view('perssonel/demandes_attestation.php',$data);
+        $this->load->view('globals/footer.php');
+              # code...
+            
+    }
+	public function demande_attestation() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}    
+   
+            $this->load->view('globals/header.php');
+            $this->load->view('globals/navbar.php');
+    
+            $this->load->view('perssonel/demandes_attestation.php');
+            $this->load->view('globals/footer.php');
+
+	}
+	public function demande_conge() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}    
+   
+
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
+		$this->load->view('perssonel/demandes_conge.php');
 		$this->load->view('globals/footer.php');
 
 	}

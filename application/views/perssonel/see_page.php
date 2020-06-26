@@ -43,11 +43,10 @@
 
 						<thead class="thead-dark">
 							<tr>
-								<th>id</th>
+							<th>cin</th>
+
 								<th>nom</th>
 								<th>prenom</th>
-								<th>sexe</th>
-								<th>cin</th>
 								<th>operation</th>
 
 
@@ -61,11 +60,9 @@
 					
 					foreach($infoperssonel as $item):?>
 							<tr>
-								<td><?=$item->id;?></td>
+							<td><?=$item->CIN;?></td>
 								<td><?=$item->nom;?></td>
 								<td><?=$item->prenom;?></td>
-								<td><?=$item->gender;?></td>
-								<td><?=$item->CIN;?></td>
 
 
 
@@ -80,7 +77,8 @@
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
 									<button onclick="del(<?=$item->id;?>)" class="btn btn-danger"><i
 											class="fas fa-trash"></i></button>
-									<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>"
+									<a href="<?=base_url()?>edit_personnel/<
+										?php echo $item->id ;?>"
 										class="btn btn-info"><i class="fas fa-user-edit"></i></a>
 									<button
 										onclick="valider_ar(<?php echo $item->id ;?>,<?php echo  $item->checked ;?>)"
@@ -94,9 +92,10 @@
 								</td>
 							</tr>
 							<!-- todo nkmlo had modal dyal detail profile -->
-							<div class="modal fade" id="detaimodal<?=$item->id;?>" tabindex="-1" role="dialog"
-								aria-labelledby="smallmodalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-sm" role="document">
+							<div class="modal fade" id="detaimodal<?=$item->id;?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+
+			
+								<div class="modal-dialog modal-lg" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
 											<h5 class="modal-title" id="smallmodalLabel">Perssonel </h5>
@@ -107,19 +106,38 @@
 										<div class="modal-body">
 											<div class="card">
 												<div class="card-body">
+                                                 <div class="row">
 
-													<ul class="list-group">
-														<li class="list-group-item"><B>Nom :</B> &nbsp;
-														<?=$item->nom;?> <?=$item->prenom;?></li>
+													 <div class="col-sm-8">
+													 <ul class="list-group">
 													
-														<li class="list-group-item"><B>CIN :</B> &nbsp;
-															<?= $item->CIN; ?></li>
-													
-														<!-- <li class="list-group-item"><B>Nom :</B> &nbsp; Ali oucahagour</li> -->
+											
+													<li class="list-group-item"><B>Nom :</B> &nbsp;
+												<?=
+												 ($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom; 
+												?>
+													</li>
+												
+													<li class="list-group-item"><B>CIN :</B> &nbsp;
+														<?= $item->CIN; ?></li>
+													<li class="list-group-item"><B>date de naissance :</B> &nbsp;
+														<?= $item->date_naissance; ?></li>
+													<li class="list-group-item"><B>Address :</B> &nbsp;
+														<?= $item->Address; ?></li>
+													<li class="list-group-item"><B>telephone :</B> &nbsp;
+														<?= $item->telephone; ?></li>
+												
 
-													</ul>
-													<!-- <img src="<?= base_url() ?>assets/files/team2.jpg"
-														style="width:100%"> -->
+												</ul>
+													 </div>
+													 <div class="col-sm-4">
+													<img class="img-fluid" src="<?= base_url().'assets/files/'.$item->photo;?>">
+															
+													 </div>
+												 </div>
+											
+												
+													<!--  -->
 
 												
 
