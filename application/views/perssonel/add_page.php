@@ -3,7 +3,7 @@
 	<div class="col-md-12">
 
 		<center>
-			<h2> Formulaire ajouter </h2>
+			<h2> Formulaire  </h2>
 		</center>
 		<?php 
    if($this->session->flashdata('success')){
