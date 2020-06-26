@@ -63,6 +63,8 @@ $route['update'] = 'Dashbord/update';//evenement modifier
 $route['check/(:any)/(:any)'] = 'Dashbord/check/$1/$2';//evenement check 
 
 $route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichage 
+$route['demande-attestation'] = 'Dashbord/demande_attestation';//loader dyal demande attestation 
+$route['demande-conge'] = 'Dashbord/demande_conge';//loader dyal demande conge
 
 
 

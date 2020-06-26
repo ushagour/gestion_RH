@@ -64,6 +64,15 @@ class Perssonel_model extends CI_Model {
         return $result = $query->result();
 
     }
+    public function perssonel_resent() {
+        $this->db->select('*');
+        $this->db->from('perssonel');
+        $this->db->order_by('date_Added', date('Y-m-d'));
+
+        $query = $this->db->get();
+        return $result = $query->result();
+
+    }
     public function get_per_to_print() {
         $this->db->select('*');
         $this->db->from('perssonel');
