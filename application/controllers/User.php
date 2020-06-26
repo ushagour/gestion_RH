@@ -50,7 +50,7 @@ class User extends CI_Controller
 
 			}
 			else{
-				$this->session->set_flashdata('login_err', 'Log ou mdp err');
+				$this->session->set_flashdata('login_err', 'Login ou mot de passe  incorrect !');
 				$this->load->view('globals/login');
 			}
 

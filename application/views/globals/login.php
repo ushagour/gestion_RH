@@ -35,7 +35,11 @@
     <link href="<?= base_url() ?>assets/css/login/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<style>
+.logerr{
+    color: red ;
+}
+</style>
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -69,11 +73,12 @@
                                     </label>
                                   
                                 </div>
+
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                              
 
 
-
+                             <center> <?= ($this->session->userdata('login_err'))? "<b class='logerr'>".$this->session->userdata('login_err')."</b>":""; ?></center>
 
                           
 
