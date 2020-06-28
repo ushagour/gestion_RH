@@ -2,9 +2,9 @@
 <div class="line"></div>
 
 <div class="row">
-	<div class="col-md-4">
-		<div class="card">
-			<div class="card-body">
+	<div class="col-md-4 d-flex">
+		<div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="<?=base_url();?>ajouter">
 		     	<img src="<?=base_url()?>/assets/images/home/new_add_user.png" 
@@ -15,9 +15,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
-    <div class="card">
-			<div class="card-body">
+	<div class="col-md-4  d-flex">
+    <div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="<?=base_url();?>demande-attestation">
 			
@@ -29,9 +29,9 @@
 			</div>
 		</div>
     </div>
-	<div class="col-md-4">
-		<div class="card">
-			<div class="card-body">
+	<div class="col-md-4 d-flex">
+		<div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="<?=base_url();?>demande-conge">
 
@@ -47,9 +47,9 @@
 </div>
 <br>
 <div class="row">
-	<div class="col-md-4">
-		<div class="card">
-			<div class="card-body">
+	<div class="col-md-4 d-flex">
+		<div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="<?=base_url();?>affichage">
 
@@ -61,9 +61,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
-    <div class="card">
-			<div class="card-body">
+	<div class="col-md-4 d-flex">
+    <div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="#">
 
@@ -75,9 +75,9 @@
 			</div>
 		</div>
     </div>
-	<div class="col-md-4">
-		<div class="card">
-			<div class="card-body">
+	<div class="col-md-4 d-flex">
+		<div class="card flex-fill">
+			<div class="card-body ">
 			<center>
 			<a href="<?= base_url() ?>Detail_user">
 
