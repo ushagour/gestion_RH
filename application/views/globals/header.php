@@ -45,6 +45,8 @@
 			<nav id="sidebar">
 				<div class="sidebar-header">
 					<h3>Gestion RH </h3>
+					<span style="padding-left: 73px;"><?= 'Le : '.date("d-m-Y",strtotime(date('Y-m-d'))); ?></span>
+
 				</div>
 
 				<ul class="list-unstyled components">
@@ -66,12 +68,7 @@
 					<li>
 						<a href="<?=base_url();?>home"> <i class="fas fa-home"></i> Home </a>
 					</li>
-					<li>
-						<a href="<?=base_url();?>ajouter">
-                        <i class="fas fa-plus"></i>
-							<span>Ajouter</span></a>
-					</li>
-
+			
 					<li>
 						<a href="<?=base_url();?>affichage"> 
                         <i class="fas fa-suitcase"></i>						
@@ -79,18 +76,11 @@
 					</li>
 					<li>
                     <a href="<?=base_url();?>"> 
-                    <i class="fas fa-comment-dots"></i>                    	<span>Contact</span></a>
+                    <i class="fas fa-comment-dots"></i>    	<span>Contact</span></a>
 					</li>
 				</ul>
 
-<?php if ($this->session->userdata('is_super_admin')) :?>
 				<ul class="list-unstyled CTAs">
-					<!-- <!-- <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li> -->
-                <li>
-                    <a href="<?=base_url();?>/Nouveau-Utilisateur" class="article">Nouveau-Utilisateur</a>
-                </li> 
+				
 				</ul>
-<?php endif;?>
 			</nav>

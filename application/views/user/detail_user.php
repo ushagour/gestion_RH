@@ -11,13 +11,14 @@
   <li class="list-group-item"><B>Nom :</B> &nbsp; <?= $user->nom_user ." ".$user->prenom_user; ?></li>
   <li class="list-group-item"><B>login :</B> &nbsp; <?= $user->login_user; ?></li>
   <li class="list-group-item"><B>Email :</B> &nbsp; <?= $user->email; ?></li>
-  <li class="list-group-item"><B>Role :</B> &nbsp; <?= $user->role; ?></li>
+  <li class="list-group-item"><B>Role :</B> &nbsp; <?=($user->is_super_admin)?'Administrateur':'Opperateur' ; ?></li>
   <!-- <li class="list-group-item"><B>Nom :</B> &nbsp; Ali oucahagour</li> -->
  
 </ul>
 <br>
+  <a href="<?= base_url()?>Edit_user" class="btn btn-danger"> Modifier le profile  </a>
 
-    <a href="<?= base_url()?>home" class="btn btn-primary">Go To home page </a>
+    <a href="<?= base_url()?>home" class="btn btn-primary"> acceill </a>
   </div>
 </div>
 
