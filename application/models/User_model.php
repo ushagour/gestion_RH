@@ -22,13 +22,23 @@ class User_model extends CI_Model
 
     }
 
-    public function update_user($data,$id){
-        $query = $this->db->update('utilisateur',$data,array('id_user'=> $id));
+    public function update_user($data){
+
+
+
+        $this->db->where('id_user', $this->session->userdata('user_id'));
+        $query = $this->db->update('utilisateur',$data);
+
+
 
         // if ($this->input->post("oldpassword")==$this->session->userdata('password');) {
         //     # code...
         // } hta nfker fiiha dyall ld password 
     }
+ 
+
+
+
     public function tracit($action=""){
         $data_trac=array(
             'action'=>$action,

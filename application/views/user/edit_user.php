@@ -51,16 +51,15 @@
   </div>
   <div class="form-group">
     <label for="oldpassword"> Old Password</label>
-    <!-- //to do kiifach ndecripti pass bach ytl3  -->
-    <input type="text" class="form-control" id="oldpassword" name="oldpassword" value="<?= $user->pass_user; ?>" placeholder="*****" required>
+    <input type="password" class="form-control" id="oldpassword" name="oldpassword"  placeholder="********">
   </div>
   <div class="form-group">
     <label for="newpassword"> New Password</label>
-    <input type="text" class="form-control" id="newpassword" name="newpassword" placeholder="*****" required>
+    <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="********">
   </div>
   <div class="form-group">
     <label for="conferm"> Conferm New password</label>
-    <input type="text" class="form-control" id="conferm" name="conferm" placeholder="*******">
+    <input type="password" class="form-control" id="conferm" name="conferm" placeholder="*********">
   </div>
 
 

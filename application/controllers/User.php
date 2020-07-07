@@ -22,7 +22,7 @@ class User extends CI_Controller
 
 			$data['user'] = $this->User_model->Check_user($user,$pass);
 			
-			if(!empty( $data['user'])){
+			if(!empty($data['user'])){
 				print_r($data['user'][0]->nom_user);
 
 				$newdata=array(
@@ -31,6 +31,7 @@ class User extends CI_Controller
 				'password'=> $data['user'][0]->pass_user,
 				'user_id'=> $data['user'][0]->id_user,
 				'is_super_admin'=> $data['user'][0]->is_super_admin,
+				'password'=> $data['user'][0]->pass_user,
 				'logged_in'=> TRUE);//this is the indicator if user logged in or not
 
 				$this->session->set_userdata($newdata);
@@ -96,15 +97,35 @@ class User extends CI_Controller
 
 	public function update(){
         if(!$this->session->userdata('logged_in'))
-        {redirect(base_url()."login");}
-        $id = $this->session->userdata('user_id');
-		$data=array("nom_user"=>$this->input->post("nom"),
+		{redirect(base_url()."login");}
+		
+
+         $old_pass=sha1($this->input->post('oldpassword'));
+         $new_pass=sha1($this->input->post('newpassword'));
+         $confermation= sha1($this->input->post('conferm'));
+		 if($old_pass==$this->session->userdata('password') && $new_pass== $confermation) {
+
+			$data=array("nom_user"=>$this->input->post("nom"),
             "prenom_user"=>$this->input->post("prenom"),
             "login_user"=>$this->input->post("login"),
             "email"=>$this->input->post("email"),
 			"role"=>$this->input->post("role"),
-            "pass_user"=>sha1($this->input->post('oldpassword'))
-);
+			"pass_user"=>$new_pass
+
+			);
+
+		}else{
+			$data=array("nom_user"=>$this->input->post("nom"),
+            "prenom_user"=>$this->input->post("prenom"),
+            "login_user"=>$this->input->post("login"),
+            "email"=>$this->input->post("email"),
+			"role"=>$this->input->post("role")
+			);
+
+			
+		}
+
+	
 		$this->form_validation->set_rules('nom', 'nom', 'required');
 		$this->form_validation->set_rules('prenom', 'prenom', 'required');
 		$this->form_validation->set_rules('login', 'login', 'required');
@@ -123,7 +144,7 @@ class User extends CI_Controller
 		{
 			//echo'ss';
 			//	$this->load->view('formsuccess');
-			$this->User_model->update_user($data,$id);
+			$this->User_model->update_user($data);
 			$this->User_model->tracit("Edit info user");
 
 			redirect(base_url()."Detail_user");
@@ -187,6 +208,17 @@ if($res)
 			echo'validation err';
 		}
 	}
+
+
+	public function Parametrage() {
+		if(!$this->session->userdata('logged_in'))
+		{redirect(base_url()."login");}
+		
+
+		
+	}
+
+
 
 	public function Logout() {
 		$this->session->sess_destroy();
