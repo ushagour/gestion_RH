@@ -85,7 +85,7 @@
 										class="btn btn-<?= ($item->checked)?"success":"dark" ?>"><i class="fa fa-check"
 											aria-hidden="true"></i></button>
 
-									<a href="<?=base_url()?>generateFPDF/<?php echo $item->id ;?>"
+									<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" target="_blank"
 										class="btn btn-warning"><i class="fas fa-file-pdf"
 											aria-hidden="true"></i></button></a>
 
@@ -137,7 +137,6 @@
 												 </div>
 											
 												
-													<!--  -->
 
 												
 

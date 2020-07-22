@@ -72,7 +72,7 @@ $route['print-etat'] = 'Dashbord/print_etat';//loader dyal page affichage
 $route['check-all'] = 'Dashbord/check_all';//check-all perssonel to ptint them
 
 
-$route['generateFPDF/(:any)'] = 'Dashbord/generateFPDF/$1';//loader dyal generate pdf dyal koola personnel
+$route['generatePDF/(:any)'] = 'Dashbord/generatePDF/$1';//loader dyal generate pdf dyal koola personnel
 
 $route['delete-personnel/(:any)'] = 'Dashbord/delete/$1';//event dyl supprition 
 $route['edit_personnel/(:any)'] = 'Dashbord/edit_personnel/$1';// page dyal modification 
@@ -93,6 +93,7 @@ $route['Nouveau-Utilisateur'] = 'User/Ajouter_user'; 														// page dyal 
 $route['add_user'] = 'User/Add_user'; 														// page dyal detail dyal luser 
 $route['Edit_user'] = 'User/Edit_user'; 														// page dyal modification dyal luser 
 $route['update_user'] = 'User/update'; 														// evenement  dyal modification dyal luser 
+$route['Parametrage'] = 'User/Parametrage'; 														// page dyal parametrage pour supper admin  
 $route['logout'] = 'User/logout'; 														// logout 
 
 

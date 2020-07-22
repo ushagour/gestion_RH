@@ -65,7 +65,7 @@
     <div class="card flex-fill">
 			<div class="card-body ">
 			<center>
-			<a href="#">
+			<a href="<?= base_url() ?>Parametrage">
 
 		     	<img src="<?=base_url()?>/assets/images/home/Paramétrage.png" 
 				 style="width: 20%; height: 20%;" alt="Paramétrage">

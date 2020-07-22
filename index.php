@@ -317,5 +317,5 @@ require_once BASEPATH . 'dotenv/autoloader.php';
 	
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
-
+include_once './vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';

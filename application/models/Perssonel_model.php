@@ -64,6 +64,15 @@ class Perssonel_model extends CI_Model {
         return $result = $query->result();
 
     }
+    public function perssonel_to_generate($id) {
+        $this->db->select('*');
+        $this->db->from('perssonel');
+       $this->db->where('id',$id);
+
+        $query = $this->db->get();
+        return $result = $query->result();
+
+    }
     public function perssonel_resent() {
         $this->db->select('*');
         $this->db->from('perssonel');

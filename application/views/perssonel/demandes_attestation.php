@@ -59,7 +59,7 @@
 									<a href="#detaimodal<?=$item->CIN;?>" data-toggle="modal" title=" plus information"
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
 								
-									<a href="<?=base_url()?>generateFPDF/<?php echo $item->id ;?>" title="Imprimer l'attestation " target="_blank"
+									<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" title="Imprimer l'attestation " target="_blank"
 										class="btn btn-warning"> <i class="fas fa-print" 
 											aria-hidden="true"></i></button></a>
 

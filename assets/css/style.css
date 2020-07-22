@@ -212,3 +212,49 @@ a.article:hover {
   .error{
     color: var(--error);
   } 
+
+
+
+
+
+  /* NOTIFICATION  */
+  .notification {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+    margin-right: 17px;
+
+  }
+  
+  .notification:hover {
+    background: red;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  

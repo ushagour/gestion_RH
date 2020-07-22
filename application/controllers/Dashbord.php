@@ -409,28 +409,21 @@ if(true){
 	}
 
     
-    public function generateFPDF($id){
+    public function generatePDF($id){
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-        //    pour la configuration du pdf voir fichier *voir therdparty/fpdf/librarys/pdf.php  DFZD
+                 
         
-            //  $id= $this->uri->segment(3); 
         
-           //  $data["infoP"] = $this->Perssonel_model->selectP();
-            
-            // $data["all"] = $this->Authors_model->showall();
-            $data="What multiCell does is to spread the given text into multiple cells,
-             this means that the second parameter defines the height of each line (individual cell)
-              and not the height of all cells (collectively).";
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8']);
 
+            $html = $this->load->view('printing/attestation_personnel',"",true);
+            $mpdf->WriteHTML($html);
+            $filename = 'assets/files';
+            $mpdf->Output($filename.'/'.$id.'.pdf','F');
+            $mpdf->Output(); // opens in browser
         
-            $this->pdf = new Pdf();
-            $this->pdf->Add_Page('P','A4',0);
-            $this->pdf->AliasNbPages();    
-            $this->pdf->BasicTable($data);// function qui va afficher le tableau dans le fichier pdf  ****voir therdparty/fpdf/librarys/pdf.php  
-        
-            $this->pdf->Output('page.pdf' , 'I' );
-            
+         
             
             
             
@@ -473,8 +466,11 @@ if(true){
         // }
 		$this->User_model->tracit("user/ print etat");
 
-        $this->load->view('perssonel/print_page', $data);
+        $this->load->view('perssonel/print_etat', $data);
     }
+
+
+
 
 
 
