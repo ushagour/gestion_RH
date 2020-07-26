@@ -414,10 +414,12 @@ if(true){
         {redirect(base_url()."login");}
                  
         
-        
+   
+        $data["infos"]=$this->Perssonel_model->perssonel_to_generate($id);  
+ 
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8']);
 
-            $html = $this->load->view('printing/attestation_personnel',"",true);
+            $html = $this->load->view('printing/attestation_personnel',$data,true);
             $mpdf->WriteHTML($html);
             $filename = 'assets/files';
             $mpdf->Output($filename.'/'.$id.'.pdf','F');

@@ -68,9 +68,8 @@ class Perssonel_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('perssonel');
        $this->db->where('id',$id);
-
-        $query = $this->db->get();
-        return $result = $query->result();
+       $query = $this->db->get();
+       return $result = $query->result();
 
     }
     public function perssonel_resent() {
@@ -116,7 +115,7 @@ class Perssonel_model extends CI_Model {
         $this->db->like('CIN ',$cin);
         $this->db->limit($limit, $start);
         $query = $this->db->get();
-        return $result = $query->result();
+        return  $query->row();
     }
     
 

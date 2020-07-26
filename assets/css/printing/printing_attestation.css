@@ -5,144 +5,28 @@
 
 		body {
 			font-family: "Calibri", Times, serif;
-			padding-top: 25px;
+			padding-top: 50px;
 			padding-bottom: 65px;
 			height: 80%;
 		}
 
-		.headerblock img {
-			float: right;
-			width: 100px;
-			border: 2px solid #000;
-			border-radius: 5px;
+		#titel{
+           text-align: center;
+			padding-bottom: 65px;
+
 		}
-
-		.headerblock .textright {
-			text-align: right;
-		}
-
-		.headerblock p {
-			text-align: center;
-		}
-
-		.headerblock h1 {
-
-			text-transform: uppercase;
-			font-size: 20px !important;
-			text-align: center;
-		}
-
-		.content {
-			font-size: 2px;
-		}
-
-		.content .grandtitle {
-			font-size: 25px;
-			font-weight: bold;
-			text-align: left;
-			text-decoration: underline;
-		}
-
-		.content table td {
-			font-size: 2px;
-		}
-
-		.footer {
-			position: fixed;
-			left: 0;
-			bottom: 20px;
-			width: 100%;
-			text-align: center;
-		}
-
-		.page-number:after {
-			content: counter(page);
-			text-align: center;
-		}
-
-		.blocktable {
-			display: inline-block;
-			float: left;
-		}
-
-		.imagetable {
-			display: inline-block;
-			float: right;
-		}
-
-		.imagetable img {
-			border: 1px solid #000;
-		}
-
-		.table tr {
-			border-right: 1px solid #000;
-		}
-
 	
+b{ text-transform: capitalize;
 
-		#footer {
-			position: fixed;
-			bottom: -180px;
-			left: 0px;
-			right: 0px;
-			text-align: center;
-			color: red;
-		}
-
-		#footer .page:before {
-			content: "Page "counter(page);
-			color: #000;
-		}
-
-		#mytable th {
-			background-color: #c5c3c3;
-		}
-
-		.data td {
-			font-size: 15px !important;
-		}
-
-		th {
-			text-align: center;
-		}
-
-		@media print {
-			@page {
-				margin-bottom: 10mm;
-				size: auto;
-			}
-
-			body {
-				margin-top: 1.2cm
-			}
-
-
-			#Header,
-			#Footer {
-				display: none !important;
-			}
-		}
-
-	
-		body {
-			margin: 0;
-			padding: 10px !important;
-		}
-
+         }
 
 		.instruction {
-			height: 100px;
-			width: 100%;
-			border: 1px solid #333;
+			margin: 40px;
 
-			text-align: center!important;
+		
+
+			text-align: right !important;
 			
 		}
 
-		/* @media print {
-            .no-print {
-                display: none ! important;
-                width: 0;
-                height: 0;
-            }
-        } */
+	
