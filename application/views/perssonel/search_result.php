@@ -64,16 +64,13 @@
 											<!-- <a class="bg-circle bg-primary" data-toggle="modal" href="#myModal1<?=$item->id;?>"> -->
 
 
-
-
-
-												
 												<a href="#detaimodal<?=$item->id;?>"  data-toggle="modal" class="btn btn-secondary"><i class="fas fa-eye"></i></a>
 												&nbsp;
 												<button onclick="del(<?=$item->id;?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
 												&nbsp;
 												<a href="<?=base_url()?>edit-personnel/<?php echo $item->id ;?>" class="btn btn-info"><i class="fas fa-user-edit"></i></a>
 
+							
 											</td>
 										</tr>
 										<?php endforeach;?>

@@ -4,10 +4,25 @@
 
 		<div class="row">
 		<div class="col-md-12" id="tab">
-		<div class="col-md-4">
+		<div class="col-md-6">
 
 				<form action="<?= base_url();?>Dashbord/serch_for_attestation" class="col" method="post">
 					<div class="input-group ">
+					<select class="form-control pro-edt-select form-control-primary"
+															name="attesta" id="attesta" >
+															<option value="0">Choisir type d'attestation </option>
+
+
+															<option style="text-transform: capitalize !important;" value="1">
+															Attestation de travaile</option>
+
+															<option style="text-transform: capitalize !important;" value="2">
+															Attestation de stage</option>
+
+
+														</select>
+														&nbsp;
+
 						<input type="text" class="form-control" name="CIN" placeholder="Search personnel par cin ..">
 						&nbsp;
 						<div class="input-group-btn">
@@ -58,13 +73,19 @@
 
 									<a href="#detaimodal<?=$item->CIN;?>" data-toggle="modal" title=" plus information"
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-								
-									<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" title="Imprimer l'attestation " target="_blank"
+								<?php if ($_POST['attesta'] ==1) :?>
+
+								<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" title="Imprimer l'attestation " target="_blank"
 										class="btn btn-warning"> <i class="fas fa-print" 
 											aria-hidden="true"></i></button></a>
 
+								<?php endif; ?>
+							
 								</td>
 							</tr>
+
+
+
 							<!-- todo nkmlo had modal dyal detail profile -->
 							<div class="modal fade" id="detaimodal<?=$item->CIN;?>" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
 
@@ -144,7 +165,7 @@
 
 		</div>
 
-		<a href="#" title="Haut de page" class=" scrollup " ><i class="fa fa-arrow-up"></i></a>
+		<a href="#" title="Haut de page" class="scrollup" ><i class="fa fa-arrow-up"></i></a>
 
 		</div>
 

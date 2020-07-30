@@ -77,17 +77,13 @@
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
 									<button onclick="del(<?=$item->id;?>)" class="btn btn-danger"><i
 											class="fas fa-trash"></i></button>
-									<a href="<?=base_url()?>edit_personnel/<
-										?php echo $item->id ;?>"
+									<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>"
 										class="btn btn-info"><i class="fas fa-user-edit"></i></a>
 									<button
 										onclick="valider_ar(<?php echo $item->id ;?>,<?php echo  $item->checked ;?>)"
 										class="btn btn-<?= ($item->checked)?"success":"dark" ?>"><i class="fa fa-check"
 											aria-hidden="true"></i></button>
 
-									<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" target="_blank"
-										class="btn btn-warning"><i class="fas fa-file-pdf"
-											aria-hidden="true"></i></button></a>
 
 								</td>
 							</tr>
@@ -107,7 +103,10 @@
 											<div class="card">
 												<div class="card-body">
                                                  <div class="row">
-
+												 <div class="col-sm-4">
+													<img class="img-fluid" src="<?= base_url().'assets/files/'.$item->photo;?>">
+															
+													 </div>
 													 <div class="col-sm-8">
 													 <ul class="list-group">
 													
@@ -130,10 +129,7 @@
 
 												</ul>
 													 </div>
-													 <div class="col-sm-4">
-													<img class="img-fluid" src="<?= base_url().'assets/files/'.$item->photo;?>">
-															
-													 </div>
+											
 												 </div>
 											
 												

@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>assets/img/favilogo.png">
+	<script type="text/javascript" src="<?=base_url()?>assets/js/jquery-3.4.1.min.js"></script>
 
 	<!-- Font Awesome JS -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -19,15 +20,12 @@
 		integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-	<script type="text/javascript" src="<?=base_url()?>assets/js/jquery-3.4.1.min.js"></script>
 
 	<!-- custem styles -->
 
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/loading/loader.css">
 
-	<!-- custem scrypts  -->
-	<script type="text/javascript" src="<?=base_url()?>assets/js/MsJs.js"></script>
 </head>
 
 
@@ -67,6 +65,10 @@
 
 					<li>
 						<a href="<?=base_url();?>home"> <i class="fas fa-home"></i> Home </a>
+					</li>
+
+					<li>
+						<a href="<?=base_url();?>ajouter"> <i class="fas fa-plus"></i> Nouveau perssonel </a>
 					</li>
 			
 					<li>

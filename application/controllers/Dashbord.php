@@ -59,8 +59,10 @@ class Dashbord extends CI_Controller {
 			$config['allowed_types']='gif|jpg|png';
 			$config['max_size']=10000000; // 1000KB = 1MO
 			$config['max_width']=300000;
-			$config['max_height']=300000;
-            $config['encrypt_name']=false;
+            $config['max_height']=300000;
+            $config['file_name'] = time().'.jpg';
+
+           // $config['file_name'] = $file_name;
 
 			$this->upload->initialize($config);
 
@@ -71,8 +73,10 @@ class Dashbord extends CI_Controller {
 
 			else {
                 $upload_data = $this->upload->data(); //Returns array of containing all of the data related to the file you uploaded.
-                $file_name = $upload_data['file_name'];
-             //  print_r($file);
+                
+                $file_name=time().'.jpg';
+                //print_r($file_name);
+
 			}
 
 			$data=array("nom"=>$this->input->post("nom"),//"nom"=> encIT($this,$this->input->post("nom"))
@@ -85,9 +89,20 @@ class Dashbord extends CI_Controller {
 				"service"=>$this->input->post("service"),
 				"poste"=>$this->input->post("poste"),
 				"salaire"=>$this->input->post("salaire"),
+				"contrat"=>$this->input->post("contrat"),
                 "photo"=>($file_name)?$file_name:"no_image.png",//ila kant imag yakhood smytha (be3d incription dylha ) sinn ytb3 liina no imag 
                 "utilisateur"=> $user);
-                
+
+                if(isset($_POST['stag'])){
+
+                    $data["date_debut"]= $this->input->post("date_debut");
+                    $data["contrat"]= "";
+                    $data["type_stage"]= $this->input->post("type_stage");
+
+                    $data["date_debut"]=$this->input->post("date_fin");
+               
+                }
+                      
                 $res =	$this->Perssonel_model->ajouter($data);
 if($res)
 {
@@ -104,7 +119,7 @@ if($res)
 		}
 
 		else {
-			echo'validation err';
+			echo'verifier les chemp a remplire !!';
 		}
 
 	}
@@ -295,6 +310,30 @@ if(true){
         $this->load->view('globals/navbar.php');
 
 		$this->load->view('perssonel/search_result.php', $data);
+		$this->load->view('globals/footer.php');
+
+
+
+    }
+
+	public function demandeAttestation(){
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}
+
+
+        $cin=(isset($_POST['CIN'])?$_POST['CIN']:'');
+
+         $data['serch']=$this->Perssonel_model->get_attesta($cin);
+
+         
+        
+   
+		
+
+        $this->load->view('globals/header.php');
+        $this->load->view('globals/navbar.php');
+
+		$this->load->view('perssonel/demandes_attestation.php', $data);
 		$this->load->view('globals/footer.php');
 
 

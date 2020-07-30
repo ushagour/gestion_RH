@@ -64,14 +64,7 @@ class Perssonel_model extends CI_Model {
         return $result = $query->result();
 
     }
-    public function perssonel_to_generate($id) {
-        $this->db->select('*');
-        $this->db->from('perssonel');
-       $this->db->where('id',$id);
-       $query = $this->db->get();
-       return $result = $query->result();
-
-    }
+  
     public function perssonel_resent() {
         $this->db->select('*');
         $this->db->from('perssonel');
@@ -115,9 +108,30 @@ class Perssonel_model extends CI_Model {
         $this->db->like('CIN ',$cin);
         $this->db->limit($limit, $start);
         $query = $this->db->get();
-        return  $query->row();
+        return $result = $query->result();
     }
+
+    // region attesta 
+
+
+    public function get_attesta($cin){
     
+        $this->db->select('*');
+        $this->db->from('perssonel');
+        $this->db->like('CIN ',$cin);
+        $query = $this->db->get();
+        return $result = $query->result();
+    }
+
+ 
+      public function perssonel_to_generate($id) {
+        $this->db->select('*');
+        $this->db->from('perssonel');
+       $this->db->where('id',$id);
+       $query = $this->db->get();
+       return $result = $query->result();
+
+    }
 
 
 

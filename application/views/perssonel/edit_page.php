@@ -1,100 +1,120 @@
-
-	<div class="col-md-12">
-
-
-		<h4><small> Modifier Personnel </small></h4>
-		<hr>
-		<style>
-			.error {
-				color: red;
-			}
-
-		</style>
-		<form action="<?php echo base_url();?>update" enctype="multipart/form-data" method="post">
-			<input hidden type="text" name="id" value="<?= $item->id;?>">
-			<div class="form-row">
-				<div class="form-group col-md-4">
-					<input type="text" class="form-control" name="nom" id="nom" aria-describedby="helpId"
-						placeholder="nom" value="<?= $item->nom;?>" required>
-					<small id="helpId" class="form-text text-muted">
-						<?php echo form_error('nom', '<div class="error">','</div>'); ?>
-					</small>
-				</div>
-				<div class="form-group col-md-4">
-					<input type="text" value="<?= $item->prenom;?>" class="form-control" id="prenom" name="prenom"
-						placeholder="prenom" required>
-					<small id="helpId" class="form-text text-muted">
-						<?php echo form_error('prenom', '<div class="error">', '</div>'); ?>
-					</small>
-				</div>
-				<div class="form-group col-md-4">
-					<input type="date" value="<?= $item->date_naissance;?>" class="form-control" id="date_naissance"
-						name="date_naissance" placeholder="" required>
-					<small id="date_naissance" class="form-text text-muted">
-						<?php echo form_error('date_naissance', '<div class="error">', '</div>'); ?>
-					</small>
-				</div>
+<div class="col-md-12">
 
 
+	<h4><small> Modifier Personnel </small></h4>
+	<hr>
+	<style>
+		.error {
+			color: red;
+		}
+
+	</style>
+	<form action="<?php echo base_url();?>update" enctype="multipart/form-data" method="post">
+		<input hidden type="text" name="id" value="<?= $item->id;?>">
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<input type="text" class="form-control" name="nom" id="nom" aria-describedby="helpId" placeholder="nom"
+					value="<?= $item->nom;?>" required>
+				<small id="helpId" class="form-text text-muted">
+					<?php echo form_error('nom', '<div class="error">','</div>'); ?>
+				</small>
+			</div>
+			<div class="form-group col-md-4">
+				<input type="text" value="<?= $item->prenom;?>" class="form-control" id="prenom" name="prenom"
+					placeholder="prenom" required>
+				<small id="helpId" class="form-text text-muted">
+					<?php echo form_error('prenom', '<div class="error">', '</div>'); ?>
+				</small>
+			</div>
+			<div class="form-group col-md-4">
+				<input type="date" value="<?= $item->date_naissance;?>" class="form-control" id="date_naissance"
+					name="date_naissance" placeholder="" required>
+				<small id="date_naissance" class="form-text text-muted">
+					<?php echo form_error('date_naissance', '<div class="error">', '</div>'); ?>
+				</small>
 			</div>
 
-			<div class="form-row">
-				<div class="form-group col-md-2">
-					<input type="text" value="<?= $item->CIN;?>" required class="form-control" id="CIN" name="CIN"
-						placeholder="CIN">
-					<small id="helpId" class="form-text text-muted">
-						<?php echo form_error('CIN', '<div class="error">', '</div>'); ?>
-					</small>
-				</div>
-				<div class="form-group col-md-4">
-					<input type="text" value="<?= $item->telephone;?>" required class="form-control" id="telephone"
-						name="telephone" placeholder="060000000">
-					<small id="telephone" class="form-text text-muted">
-						<?php echo form_error('telephone', '<div class="error">', '</div>'); ?>
-					</small>
-				</div>
-				<div class="form-group col-md-6">
-					<input type="text" value="<?= $item->Address;?>" required class="form-control" id="Address"
-						name="Address" placeholder="1234 Main St">
-					<small id="Address" class="form-text text-muted">
-						<?php echo form_error('Address', '<div class="error">', '</div>'); ?>
-					</small>
-				</div>
 
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-2">
+				<input type="text" value="<?= $item->CIN;?>" required class="form-control" id="CIN" name="CIN"
+					placeholder="CIN">
+				<small id="helpId" class="form-text text-muted">
+					<?php echo form_error('CIN', '<div class="error">', '</div>'); ?>
+				</small>
+			</div>
+			<div class="form-group col-md-4">
+				<input type="text" value="<?= $item->telephone;?>" required class="form-control" id="telephone"
+					name="telephone" placeholder="060000000">
+				<small id="telephone" class="form-text text-muted">
+					<?php echo form_error('telephone', '<div class="error">', '</div>'); ?>
+				</small>
+			</div>
+			<div class="form-group col-md-6">
+				<input type="text" value="<?= $item->Address;?>" required class="form-control" id="Address"
+					name="Address" placeholder="1234 Main St">
+				<small id="Address" class="form-text text-muted">
+					<?php echo form_error('Address', '<div class="error">', '</div>'); ?>
+				</small>
 			</div>
 
-			<div class="form-row">
-				<div class="form-group col-md-12">
+		</div>
 
-					<div class="form-check">
+		<div class="form-row">
+			<div class="form-group col-md-12">
+
+				<div class="form-check">
 
 
-						<input  type="radio" name="gender" value="Male" <?php 
+					<input type="radio" name="gender" value="Male" <?php 
                               echo set_value('gender', $item->gender) =="Male"? "checked" : ""; 
                                  ?> /> Male
-&nbsp;
-						<input  type="radio" name="gender" value="Female" <?php 
+					&nbsp;
+					<input type="radio" name="gender" value="Female" <?php 
                               echo set_value('gender', $item->gender) == "Female" ? "checked" : ""; 
                                   ?> /> Female
 
 
-					</div>
-
-				</div>
-
-			</div>
-			<div class="form-row">
-
-				<div class="form-group col-md-12">
-					<label>Image</label>
-					<input type="file" class="form-control" id="userfile" name="userfile">
-					<small id="helpId" class="form-text text-muted">
-						<?php echo form_error('photo', '<div class="error">', '</div>'); ?>
-					</small>
 				</div>
 
 			</div>
 
+		</div>
+		<div class="form-row">
+
+			<div class="form-group col-md-12" id="prs_img">
+				<label for="userfile">Image</label>
+				<input type="file" class="form-control" id="userfile" name="userfile">
+				<small id="helpId" class="form-text text-muted">
+					<?php echo form_error('photo', '<div class="error">', '</div>'); ?>
+				</small>
+
+			</div>
+
+		</div>
+		<div class="form-row">
+
+			<div class="form-group col-md-12" id="prs_img">
+		<div class="form-check">
+		  <label class="form-check-label">
+			<input type="checkbox" class="form-check-input" name="emp" id="emp" value="checkedValue" checked>
+			Employé
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			&nbsp;
+			<input type="checkbox" class="form-check-input" name="stag" id="stag" value="checkedValue" >
+			Stagiare
+		  </label>
+		</div>
+
+			</div>
+
+		</div>
+
+		<div id="personnel">
 			<h4 class="pt-2"><small> Information professionnel</small></h4>
 			<hr>
 
@@ -122,20 +142,23 @@
 				</div>
 
 			</div>
-			<center>
+		</div>
+
+		<center>
 
 
-				<input type="submit" class="btn btn-success " style="margin-right: 10px;" value="valider">
-				<!-- TODO BUTTON RETOUR EN ARRIERE  -->
-				<button onclick="location.href='<?= base_url() ?>affichage'"    class="btn btn-info " style="margin-right: 10px;"  type="button">
+			<input type="submit" class="btn btn-success " style="margin-right: 10px;" value="valider">
+			<!-- TODO BUTTON RETOUR EN ARRIERE  -->
+			<button onclick="location.href='<?= base_url() ?>affichage'" class="btn btn-info "
+				style="margin-right: 10px;" type="button">
 				Anuuler
-                 </button>
-			</center>
+			</button>
+		</center>
 
 
 
-		</form>
-	</div>
+	</form>
+</div>
 
 
 
