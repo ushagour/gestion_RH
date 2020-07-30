@@ -9,7 +9,7 @@
 			<a href="<?=base_url();?>ajouter">
 		     	<img src="<?=base_url()?>/assets/images/home/new_add_user.png" 
 				 style="width: 20%; height: 20%;" alt="Ajouter un nouveau perssonel">
-				<h5 class="card-title">nouveau perssonel</h5>
+				<h5 class="card-title">Nouveau perssonel</h5>
 				</a>
 				</center>
 			</div>

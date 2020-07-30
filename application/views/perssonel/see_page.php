@@ -177,16 +177,18 @@
 
 <script>
 	function del(id) {
-		console.log(id)
+		//console.log(id)
+		if (confirm("Voulez vous supprimer l'employé"))
 		jQuery.ajax({
 			type: "GET",
 			url: "<?php echo base_url();?>delete-personnel/" + id,
 
 			success: function (data) {
+
 				$('#tab').load(location.href + " #tab");
 
 
-				console.log(data);
+			//	console.log(data);
 			},
 			error: function (data) {
 				alert("erreur !");
