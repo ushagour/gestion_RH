@@ -127,11 +127,14 @@
 
 
 			<input type="checkbox" class="form-check-input" id="stag" name="stag" value="checkedValue">
-			si il s'agit d'un Stagaire click ici !!!!
+			<label for="stag">si il s'agit d'un Stagaire click ici !!!!</label>
+			
 			<hr>
 
 			<div class="form-row">
 				<div class="form-group col-md-3">
+				<label for="service">service</label>
+
 					<input type="text" required class="form-control" id="service" name="service" placeholder="service">
 					<small id="helpId" class="form-text text-muted">
 						<?php echo form_error('service', '<div class="error">', '</div>'); ?>
@@ -139,6 +142,8 @@
 				</div>
 			
 					<div class="form-group col-md-3">
+					<label for="poste">poste</label>
+
 						<input type="text" required class="form-control" id="poste" name="poste" placeholder="poste">
 						<small id="helpId" class="form-text text-muted">
 							<?php echo form_error('poste', '<div class="error">', '</div>'); ?>
@@ -146,6 +151,7 @@
 					</div>
 
 					<div class="form-group col-md-3" id="employe">
+					<label for="contrat"> Type de contrat </label>
 						<select class="custom-select" name="contrat" id="contrat">
 							<option selected>Type de contrat</option>
 							<option value="CDI">CDI</option>
@@ -155,6 +161,8 @@
 					</div>
 			
 				<div class="form-group col-md-3">
+				<label for="salaire">salaire</label>
+
 					<input type="text" required class="form-control" id="salaire" name="salaire" placeholder="salaire">
 					<small id="helpId" class="form-text text-muted">
 						<?php echo form_error('salaire', '<div class="error">', '</div>'); ?>
