@@ -1,4 +1,4 @@
-<h4><small> Liste du Personnel </small></h4>
+<h4><small> Liste du Personnels </small></h4>
 <hr>
 
 <div class="row">
@@ -91,8 +91,16 @@
 						<div class="modal-dialog modal-lg" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="smallmodalLabel">Perssonel </h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<?php if ($item->type_stage){?>
+											<h5 class="modal-title" id="smallmodalLabel">Information du Stagaire(e) </h5>
+
+										<?php } 
+										else{?>
+											<h5 class="modal-title" id="smallmodalLabel">Information d'employer(e) </h5>
+
+										<?php } ?>	
+										
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>

@@ -448,13 +448,23 @@ if(true){
 	}
 
     
-    public function generatePDF($id){
+    public function generatePDF($id,$type){
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-                 
-        
-   
+
         $data["infos"]=$this->Perssonel_model->perssonel_to_generate($id);  
+
+        
+   if ($type=="stage") {
+ 
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8']);
+
+            $html = $this->load->view('printing/attestation_stage',$data,true);
+            $mpdf->WriteHTML($html);
+            $filename = 'assets/files';
+            $mpdf->Output($filename.'/'.$id.'.pdf','F');
+            $mpdf->Output(); // opens in browser
+   }else {
  
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8']);
 
@@ -463,6 +473,8 @@ if(true){
             $filename = 'assets/files';
             $mpdf->Output($filename.'/'.$id.'.pdf','F');
             $mpdf->Output(); // opens in browser
+           }
+    
         
          
             

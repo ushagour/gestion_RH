@@ -72,7 +72,7 @@ $route['print-etat'] = 'Dashbord/print_etat';//loader dyal page affichage
 $route['check-all'] = 'Dashbord/check_all';//check-all perssonel to ptint them
 
 
-$route['generatePDF/(:any)'] = 'Dashbord/generatePDF/$1';//loader dyal generate pdf dyal koola personnel
+$route['generatePDF/(:any)/(:any)'] = 'Dashbord/generatePDF/$1/$2';//loader dyal generate pdf dyal koola personnel
 
 $route['delete-personnel/(:any)'] = 'Dashbord/delete/$1';//event dyl supprition 
 $route['edit_personnel/(:any)'] = 'Dashbord/edit_personnel/$1';// page dyal modification 

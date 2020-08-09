@@ -68,12 +68,11 @@
 												&nbsp;
 												<button onclick="del(<?=$item->id;?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
 												&nbsp;
-												<a href="<?=base_url()?>edit-personnel/<?php echo $item->id ;?>" class="btn btn-info"><i class="fas fa-user-edit"></i></a>
-
+												<a href="<?=base_url()?>edit_personnel/<?php echo $item->id ;?>" class="btn btn-info"><i
+									class="fas fa-user-edit"></i></a>
 							
 											</td>
 										</tr>
-										<?php endforeach;?>
 				
 									</tbody>
 								
@@ -88,6 +87,98 @@
 
 					</center>
                                 </div>
+
+					<div class="modal fade" id="detaimodal<?=$item->id;?>" tabindex="-1" role="dialog"
+						aria-labelledby="mediumModalLabel" aria-hidden="true">
+
+
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+								<?php if ($item->type_stage){?>
+											<h5 class="modal-title" id="smallmodalLabel">Information du Stagaire(e) </h5>
+
+										<?php } else{?>
+											<h5 class="modal-title" id="smallmodalLabel">Information d'employer(e) </h5>
+
+										<?php } ?>									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="card">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-sm-4">
+													<img class="img-fluid"
+														src="<?= base_url().'assets/files/'.$item->photo;?>">
+
+												</div>
+												<div class="col-sm-8">
+													<ul class="list-group">
+
+
+														<li class="list-group-item"><B>Nom :</B> &nbsp;
+															<?=
+												 ($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom; 
+												?>
+														</li>
+
+														<li class="list-group-item"><B>CIN :</B> &nbsp;
+															<?= $item->CIN; ?></li>
+														<li class="list-group-item"><B>Address :</B> &nbsp;
+															<?= $item->Address; ?></li>
+														<li class="list-group-item"><B>telephone :</B> &nbsp;
+															<?= $item->telephone; ?></li>
+														<?php if($item->type_stage){?>
+														<li class="list-group-item"><B>Stage :</B> &nbsp;
+															<?= $item->type_stage; ?></li>
+															<li class="list-group-item"><B>Service :</B> &nbsp;
+															<?= $item->service; ?></li>
+														<li class="list-group-item"><B>Poste chargé:</B> &nbsp;
+															<?= $item->poste; ?></li>
+															<li class="list-group-item"><B>Remuniration  :</B> &nbsp;
+															<?= $item->salaire; ?></li>
+														<?php } 
+														else { ?>
+														<li class="list-group-item"><B>Service :</B> &nbsp;
+															<?= $item->service; ?></li>
+														<li class="list-group-item"><B>Poste chargé:</B> &nbsp;
+															<?= $item->poste; ?></li>
+														<li class="list-group-item"><B>Type de contrat :</B> &nbsp;
+															<?= $item->contrat; ?></li>
+														<li class="list-group-item"><B>Salaire :</B> &nbsp;
+															<?= $item->salaire; ?></li>
+
+															<?php }?>
+
+
+													</ul>
+												</div>
+
+											</div>
+
+
+
+
+
+
+										</div>
+										<div class="card-footer">
+											<strong class="card-title mb-3">
+
+												<button class="btn">
+													Contacter <span class="badge badge-primary"></span>
+												</button> </strong>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<?php endforeach;?>
+
 								<?php } ?>
             </div>
 
@@ -100,53 +191,29 @@
 	</div>
 	
 <script>
-function del(id) {
-		console.log(id)
-		jQuery.ajax({
-			type: "GET",
-			url: "<?php echo base_url();?>delete-personnel/"+ id ,
+	function del(id) {
+		//console.log(id)
+		if (confirm("Voulez vous supprimer l'employé"))
+			jQuery.ajax({
+				type: "GET",
+				url: "<?php echo base_url();?>delete-personnel/" + id,
 
-			success: function (data) {
-				$('#o').load(location.href + " #o");
+				success: function (data) {
+
+					$('#o').load(location.href + " #o");
 
 
-				console.log(data);
-			},
-			error: function (data) {
-				 alert("erreur !");
-			}
-		});
+					//	console.log(data);
+				},
+				error: function (data) {
+					alert("erreur !");
+				}
+			});
 
 	}
-
 					</script>
 
 
 
 
 
-<!-- modal small -->
-<!-- <div class="modal fade" id="myModal119" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-						<div class="card">
-                                    <div class="card-body">
-                          
-                                    </div>
-                                    <div class="card-footer">
-                                        <strong class="card-title mb-3">Profile Card</strong>
-                                    </div>
-                                </div>
-						</div>
-					
-					</div>
-				</div>
-			</div> -->
-			<!-- end modal small -->		

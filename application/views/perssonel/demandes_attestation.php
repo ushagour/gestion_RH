@@ -1,5 +1,5 @@
 
-		<h4><small> Demandes D'attestation  </small></h4>
+		<h4><small> Demandes D'attestations  </small></h4>
 		<hr>
 
 		<div class="row">
@@ -8,20 +8,7 @@
 
 				<form action="<?= base_url();?>Dashbord/serch_for_attestation" class="col" method="post">
 					<div class="input-group ">
-					<select class="form-control pro-edt-select form-control-primary"
-															name="attesta" id="attesta" >
-															<option value="0">Choisir type d'attestation </option>
-
-
-															<option style="text-transform: capitalize !important;" value="1">
-															Attestation de travaile</option>
-
-															<option style="text-transform: capitalize !important;" value="2">
-															Attestation de stage</option>
-
-
-														</select>
-														&nbsp;
+		
 
 						<input type="text" class="form-control" name="CIN" placeholder="Search personnel par cin ..">
 						&nbsp;
@@ -73,13 +60,18 @@
 
 									<a href="#detaimodal<?=$item->CIN;?>" data-toggle="modal" title=" plus information"
 										class="btn btn-secondary"><i class="fas fa-eye"></i></a>
-								<?php if ($_POST['attesta'] ==1) :?>
+								<?php if ($item->type_stage){?>
 
-								<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>" title="Imprimer l'attestation " target="_blank"
+								<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>/stage" title="Imprimer l'attestation " target="_blank"
 										class="btn btn-warning"> <i class="fas fa-print" 
 											aria-hidden="true"></i></button></a>
 
-								<?php endif; ?>
+								<?php }
+								else{ ?>
+												<a href="<?=base_url()?>generatePDF/<?php echo $item->id ;?>/travaile" title="Imprimer l'attestation " target="_blank"
+												class="btn btn-warning"> <i class="fas fa-print" 
+													aria-hidden="true"></i></button></a>
+													<?php	} ?>
 							
 								</td>
 							</tr>
@@ -93,7 +85,13 @@
 								<div class="modal-dialog modal-lg" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title" id="smallmodalLabel">Perssonel </h5>
+										<?php if ($item->type_stage){?>
+											<h5 class="modal-title" id="smallmodalLabel">Information du Stagaire(e) </h5>
+
+										<?php } else{?>
+											<h5 class="modal-title" id="smallmodalLabel">Information d'employer(e) </h5>
+
+										<?php } ?>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
@@ -105,25 +103,44 @@
 
 													 <div class="col-sm-8">
 													 <ul class="list-group">
-													
-											
-													<li class="list-group-item"><B>Nom :</B> &nbsp;
-												<?=
-												 ($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom; 
-												?>
-													</li>
-												
-													<li class="list-group-item"><B>CIN :</B> &nbsp;
-														<?= $item->CIN; ?></li>
-													<li class="list-group-item"><B>date de naissance :</B> &nbsp;
-														<?= $item->date_naissance; ?></li>
-													<li class="list-group-item"><B>Address :</B> &nbsp;
-														<?= $item->Address; ?></li>
-													<li class="list-group-item"><B>telephone :</B> &nbsp;
-														<?= $item->telephone; ?></li>
-												
 
-												</ul>
+
+<li class="list-group-item"><B>Nom :</B> &nbsp;
+	<?=
+($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom; 
+?>
+</li>
+
+<li class="list-group-item"><B>CIN :</B> &nbsp;
+	<?= $item->CIN; ?></li>
+<li class="list-group-item"><B>Address :</B> &nbsp;
+	<?= $item->Address; ?></li>
+<li class="list-group-item"><B>telephone :</B> &nbsp;
+	<?= $item->telephone; ?></li>
+<?php if($item->type_stage){?>
+<li class="list-group-item"><B>Stage :</B> &nbsp;
+	<?= $item->type_stage; ?></li>
+	<li class="list-group-item"><B>Service :</B> &nbsp;
+	<?= $item->service; ?></li>
+<li class="list-group-item"><B>Poste chargé:</B> &nbsp;
+	<?= $item->poste; ?></li>
+	<li class="list-group-item"><B>Remuniration  :</B> &nbsp;
+	<?= $item->salaire; ?></li>
+<?php } 
+else { ?>
+<li class="list-group-item"><B>Service :</B> &nbsp;
+	<?= $item->service; ?></li>
+<li class="list-group-item"><B>Poste chargé:</B> &nbsp;
+	<?= $item->poste; ?></li>
+<li class="list-group-item"><B>Type de contrat :</B> &nbsp;
+	<?= $item->contrat; ?></li>
+<li class="list-group-item"><B>Salaire :</B> &nbsp;
+	<?= $item->salaire; ?></li>
+
+	<?php }?>
+
+
+</ul>
 													 </div>
 													 <div class="col-sm-4">
 													<img class="img-fluid" src="<?= base_url().'assets/files/'.$item->photo;?>">
