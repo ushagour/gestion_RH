@@ -40,11 +40,27 @@ class User_model extends CI_Model
 
 
     public function tracit($action=""){
+
         $data_trac=array(
             'action'=>$action,
             'user_id'=> $this->session->userdata('user_id'),
-            'date'=>  date('Y-m-d h:i:sa')
+            'date'=>  date('Y-m-d H:i:sa'),
+            'adresseIP'=>$_SERVER['REMOTE_ADDR']
+
           );
         $this->db->insert("pre_trace", $data_trac);
+    }
+
+
+    public function git_notifications($action){
+
+        $this->db->select('*');
+        $this->db->from('pre_trace');
+        $this->db->like('action', $action);
+        $this->db->like('date',date("Y-m-d"));
+
+        $query = $this->db->get();
+		return $query->num_rows();
+    
     }
 }

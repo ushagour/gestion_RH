@@ -107,7 +107,7 @@ class Dashbord extends CI_Controller {
 if($res)
 {
     $this->session->set_flashdata('success', "Le Perssonel a été enregistré !"); 
-    $this->User_model->tracit("user/  add personnel");
+    $this->User_model->tracit("add");
 
 }else{
     $this->session->set_flashdata('error', "erreur veuillez réessayer");
@@ -530,14 +530,16 @@ if(true){
 
 	public function test() {
 
-   $u= $this->session->userdata('user_id');
-print($u);
-		// $this->load->view('globals/test2.php');
+//    $u= $this->session->userdata('user_id');
+// print($u);
+// 		// $this->load->view('globals/test2.php');
 
-        $ip = gethostbyname(base_url());
+//         $ip = gethostbyname(base_url());
 
-        echo $ip;
-        
+//         echo $ip;
+        echo "<pre>";
+print_r($this->User_model->git_notifications("add"));
+
 	}
 
 	public function ky() {

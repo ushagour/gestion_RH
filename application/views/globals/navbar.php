@@ -15,28 +15,28 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="nav navbar-nav ml-auto">
-              
-                
+
+             <?php if($this->session->userdata('is_super_admin')): ?>
 					<div class="dropdown">
-				
-					 <button type="button" class="btn btn-primary" type="button" data-toggle="dropdown">
-					 <i class="fas fa-bell"></i>
-					 <span class="badge badge-light">4</span>
-                       </button>
 
-						<ul class="dropdown-menu">
-  <li class="list-group-item">Dapibus ac facilisis in</li>
+						<button type="button" class="btn btn-primary"   id="navbarDropdownMenuLink-5" aria-haspopup="true" aria-expanded="true"type="button" data-toggle="dropdown">
+							<i class="fas fa-bell"></i>
+							<span class="badge badge-light"><?=  ($this->User_model->git_notifications("add"));?></span>
+						</button>
 
-  
-  <li class="list-group-item list-group-item-primary">This is a primary list group item</li>
-  <li class="list-group-item list-group-item-secondary">This is a secondary list group item</li>
-  <li class="list-group-item list-group-item-success">This is a success list group item</li>
 
-</ul>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+			<?php for($i = 1; $i <=$this->User_model->git_notifications("add"); $i++):?>
+
+              <a class="dropdown-item " href="#"><i class="fas fa-bell danger"></i>  &nbsp;un personnel a été ajouté!  </a>
+			  <?php endfor; ?>
+
+            </div>
+
 					</div>
-
+<?php endif; ?>
 					&nbsp;
-					&nbsp;
+		 			&nbsp;
 
 
 					<div class="dropdown">
