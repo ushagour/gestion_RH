@@ -51,7 +51,10 @@ class User_model extends CI_Model
         $this->db->insert("pre_trace", $data_trac);
     }
 
-
+/**
+ * @param action dyal user daba khdamin ghiir b add 
+ * 
+ */
     public function git_notifications($action){
 
         $this->db->select('*');

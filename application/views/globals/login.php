@@ -69,7 +69,7 @@
                                         </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" value="1">Remember Me
+                                        <input type="checkbox" id="show_pas" value="1"> show password 
                                     </label>
                                   
                                 </div>
@@ -118,6 +118,24 @@
     <!-- Main JS-->
     <script src="<?= base_url() ?>assets/js/login/main.js"></script>
 
+    <script>
+
+let password = document.getElementById("password")
+$("#show_pas").change(function() {
+ if (password.type=="password") {
+
+    password.type = "text";
+
+ }else
+ {    
+     password.type = "password";
+
+ }
+ 
+});
+
+
+</script>
 </body>
 
 </html>
