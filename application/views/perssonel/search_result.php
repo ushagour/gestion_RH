@@ -1,15 +1,16 @@
 
-<div class="col-md-12">
 
 
 
-      <h4><small> resultat du recherch  </small></h4>
+
+      <h4><small> Resultat du Recherch  </small></h4>
       <hr>
   
 
        
-      <section class="panel">
-            <header class="panel-heading">
+  
+	  <div class="row">
+		<div class="col-md-12" id="tab">
 			<form action="<?php echo base_url();?>search" method="post">
 			<div class="input-group col-md-4">
 			<input type="text" class="form-control" name="CIN" placeholder="Search personnel par cin ..">
@@ -27,7 +28,14 @@
             <div class="panel-body" id="o">
 
 
-		<?php	if(isset($serch)) { ?>
+		<?php	if(empty($serch)) {
+		echo '
+		<div class="alert alert-warning" role="alert"> pas personnel trouvé </div>';
+		}
+		
+		
+		else{ ?>
+
 
 			<div class="table-responsive table--no-card table-dark m-b-30">
                                     <table class="table table-borderless table-striped table-earning">
@@ -46,11 +54,8 @@
 									</thead>
 									<tbody>
 										<tr class="gradeX">
-					<?php 
-					
-					
-					
-					foreach($serch as $item):?>
+					<?php
+                    foreach ($serch as $item):?>
 										<tr>
 								           <td><?=$item->id;?></td>
 											<td><?=$item->nom;?></td>
@@ -95,11 +100,11 @@
 						<div class="modal-dialog modal-lg" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-								<?php if ($item->type_stage){?>
+								<?php if ($item->type_stage) {?>
 											<h5 class="modal-title" id="smallmodalLabel">Information du Stagaire(e) </h5>
 
-										<?php } else{?>
-											<h5 class="modal-title" id="smallmodalLabel">Information d'employer(e) </h5>
+										<?php } else { ?>
+											<h5 class="modal-title" id="smallmodalLabel">Information 'employer(e) </h5>
 
 										<?php } ?>									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
@@ -120,8 +125,8 @@
 
 														<li class="list-group-item"><B>Nom :</B> &nbsp;
 															<?=
-												 ($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom; 
-												?>
+                                                 ($item->gender =="Male")? "Mr ".$item->nom." ".$item->prenom : "Mlle ".$item->nom." ".$item->prenom;
+                                                ?>
 														</li>
 
 														<li class="list-group-item"><B>CIN :</B> &nbsp;
@@ -130,7 +135,7 @@
 															<?= $item->Address; ?></li>
 														<li class="list-group-item"><B>telephone :</B> &nbsp;
 															<?= $item->telephone; ?></li>
-														<?php if($item->type_stage){?>
+														<?php if ($item->type_stage) {?>
 														<li class="list-group-item"><B>Stage :</B> &nbsp;
 															<?= $item->type_stage; ?></li>
 															<li class="list-group-item"><B>Service :</B> &nbsp;
@@ -139,8 +144,7 @@
 															<?= $item->poste; ?></li>
 															<li class="list-group-item"><B>Remuniration  :</B> &nbsp;
 															<?= $item->salaire; ?></li>
-														<?php } 
-														else { ?>
+														<?php } else { ?>
 														<li class="list-group-item"><B>Service :</B> &nbsp;
 															<?= $item->service; ?></li>
 														<li class="list-group-item"><B>Poste chargé:</B> &nbsp;
@@ -177,18 +181,25 @@
 							</div>
 						</div>
 					</div>
-					<?php endforeach;?>
+					<?php endforeach;
+                    }?>
 
-								<?php } ?>
+			
+
+													
+													
+            </div>
+            </div>
+       
+            </div>
             </div>
 
             
-        </section>
+  
 		
 	
    
-	 </div>
-	</div>
+
 	
 <script>
 	function del(id) {
@@ -198,7 +209,7 @@
 				type: "GET",
 				url: "<?php echo base_url();?>delete-personnel/" + id,
 
-				success: function (data) {
+				success: function (data){
 
 					$('#o').load(location.href + " #o");
 

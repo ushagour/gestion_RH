@@ -17,15 +17,15 @@
 				<ul class="nav navbar-nav ml-auto">
 
              <?php if($this->session->userdata('is_super_admin')): ?>
-					<div class="dropdown">
+					<div class="dropdown" id="notif">
 
-						<button type="button" class="btn btn-primary"   id="navbarDropdownMenuLink-5" aria-haspopup="true" aria-expanded="true"type="button" data-toggle="dropdown">
+						<button type="button" class="btn btn-primary noti"   id="navbarDropdownMenuLink-5" aria-haspopup="true" aria-expanded="true"type="button" data-toggle="dropdown">
 							<i class="fas fa-bell"></i>
 							<span class="badge badge-light"><?=  ($this->User_model->git_notifications("add"));?></span>
 						</button>
 
 
-            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary noti" aria-labelledby="navbarDropdownMenuLink-5">
 			<?php for($i = 1; $i <=$this->User_model->git_notifications("add"); $i++):?>
 
               <a class="dropdown-item " href="#"><i class="fas fa-bell danger"></i>  &nbsp;un personnel a été ajouté!  </a>
@@ -69,3 +69,11 @@
 			</div>
 		</div>
 	</nav>
+<script>
+setInterval(() => {
+	console.log("tb3");
+	
+	$("#notif").load(location.href + " #notif");
+}, 10000);
+
+</script>

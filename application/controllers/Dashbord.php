@@ -254,6 +254,7 @@ if(true){
 	public function SearchPersonnel(){
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
+
         $cin=(isset($_POST['CIN'])?$_POST['CIN']:'');
 
 
@@ -303,8 +304,8 @@ if(true){
          $data["nbr_page"]=("Nombre d'articles  : ".$config["total_rows"]);
          
          // views
-   
-		
+//    echo"<pre>";
+//         print_r($data['serch'])	;	
 
         $this->load->view('globals/header.php');
         $this->load->view('globals/navbar.php');
