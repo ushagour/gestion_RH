@@ -71,7 +71,7 @@
 	</nav>
 <script>
 setInterval(() => {
-	console.log("tb3");
+	// console.log("tb3");
 	
 	$("#notif").load(location.href + " #notif");
 }, 10000);

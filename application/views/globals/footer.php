@@ -14,6 +14,10 @@
 
 <script type="text/javascript" src="<?=base_url()?>assets/js/myscripts.js"></script>
 
+
+    <!-- full calendar requires moment along jquery which is included above -->
+    <script src="vendor/fullcalendar-3.10.0/lib/moment.min.js"></script>
+    <script src="vendor/fullcalendar-3.10.0/fullcalendar.js"></script>
 <script>
 
 var myVar;

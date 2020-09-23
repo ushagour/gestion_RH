@@ -26,6 +26,10 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/loading/loader.css">
 
+    <!-- FullCalendar -->
+	<link href='vendor/fullcalendar-3.10.0/fullcalendar.css' rel='stylesheet' media="all" />
+
+
 </head>
 
 

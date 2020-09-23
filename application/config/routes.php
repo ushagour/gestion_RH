@@ -64,7 +64,6 @@ $route['check/(:any)/(:any)'] = 'Dashbord/check/$1/$2';//evenement check
 
 $route['affichage'] = 'Dashbord/affichage_personnel';//loader dyal page affichage 
 $route['demande-attestation'] = 'Dashbord/demandeAttestation';//loader dyal demande attestation 
-$route['demande-conge'] = 'Dashbord/demande_conge';//loader dyal demande conge
 
 
 
@@ -99,3 +98,18 @@ $route['logout'] = 'User/logout'; 														// logout
 
 // $route['search'] = 'dashbord/search';
 // $route['editionEtat/(:num)'] = 'dashbord/editionEtat/$1';
+
+
+
+
+
+
+
+
+
+
+// gestion des congé
+
+$route['Conge'] = 'Dashbord/Demande_conge';
+$route['AddEvent'] = 'Dashbord/Add_event';
+

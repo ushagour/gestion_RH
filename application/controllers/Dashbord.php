@@ -435,7 +435,7 @@ if(true){
             $this->load->view('globals/footer.php');
 
 	}
-	public function demande_conge() {
+	public function Demande_conge() {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}    
    
@@ -447,6 +447,47 @@ if(true){
 		$this->load->view('globals/footer.php');
 
 	}
+
+    
+	public function loadCalender() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}    
+   
+
+        $event_data=$this->conge_model->get_conges();  
+        foreach($event_data->result_array() as $row)
+        {
+         $data[] = array(
+          
+          'title' => $row['title'],
+          'start' => $row['start'],
+          'end' => $row['end']
+         );
+        }
+        echo json_encode($data);
+    }
+    
+
+
+	public function Add_event() {
+        if(!$this->session->userdata('logged_in'))
+        {redirect(base_url()."login");}    
+   
+$data =array (
+    "start" => $this->input->post('start'),
+    "end" =>$this->input->post('end'),
+    "title" =>$this->input->post('title')
+
+);
+     
+
+        $this->conge_model->ajouter($data);
+
+	}
+
+
+
+
 
     
     public function generatePDF($id,$type){

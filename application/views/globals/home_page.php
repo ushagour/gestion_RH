@@ -33,7 +33,7 @@
 		<div class="card flex-fill">
 			<div class="card-body ">
 			<center>
-			<a href="<?=base_url();?>demande-conge">
+			<a href="<?=base_url();?>Conge">
 
 		     	<img src="<?=base_url()?>/assets/images/home/demandes_congés.png" 
 				 style="width: 20%; height: 20%;" alt="les demandes de congés">
