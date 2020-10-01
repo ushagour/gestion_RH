@@ -12,6 +12,9 @@ class Dashbord extends CI_Controller {
 
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
+
+        $this->session->page ="home";
+
         $this->load->view('globals/header.php');
         $this->load->view('globals/navbar.php');
         
@@ -25,6 +28,7 @@ class Dashbord extends CI_Controller {
 	public function ajouter_personnel() {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
+        $this->session->page ="ajouter";
 
         $this->load->view('globals/header.php');
         $this->load->view('globals/navbar.php');
@@ -348,7 +352,9 @@ if(true){
 	public function affichage_personnel() {
         if(!$this->session->userdata('logged_in'))
         {redirect(base_url()."login");}
-	//	$cine=$this->input->post("CIN");
+    //	$cine=$this->input->post("CIN");
+    $this->session->page ="affichage";
+
 
         $data['infoperssonel']=$this->Perssonel_model->select_p();
     

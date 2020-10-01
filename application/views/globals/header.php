@@ -24,6 +24,7 @@
 	<!-- custem styles -->
 
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/css/my_css.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/loading/loader.css">
 
     <!-- FullCalendar -->
@@ -52,41 +53,31 @@
 				</div>
 
 				<ul class="list-unstyled components">
-					<!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-				</li> -->
+	
 
-					<li>
+					<li class="<?= ($this->session->userdata('page')=="home")?"active": "";?>">
 						<a href="<?=base_url();?>home"> <i class="fas fa-home"></i> Home </a>
 					</li>
 
-					<li>
+					<li class="<?= ($this->session->userdata('page')=="ajouter")?"active": "";?>">
 						<a href="<?=base_url();?>ajouter"> <i class="fas fa-plus"></i> Nouveau perssonel </a>
 					</li>
 			
-					<li>
+					<li class="<?= ($this->session->userdata('page')=="affichage")?"active": "";?>">
 						<a href="<?=base_url();?>affichage"> 
                         <i class="fas fa-suitcase"></i>						
                         	<span>Affichage</span></a>
 					</li>
-					<li>
+					<li class="<?= ($this->session->userdata('page')=="contact")?"active": "";?>">
                     <a href="<?=base_url();?>"> 
                     <i class="fas fa-comment-dots"></i>    	<span>Contact</span></a>
 					</li>
 				</ul>
 
-				<ul class="list-unstyled CTAs">
-				
-				</ul>
+				<!-- <ul class="list-unstyled CTAs">
+				<li>
+                    <a href="<?=base_url();?>"> 
+                    <i class="fas fa-comment-dots"></i>    	<span>Contact</span></a>
+					</li>
+				</ul> -->
 			</nav>
